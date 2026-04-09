@@ -1,4 +1,4 @@
-# Título do Projeto
+# E-Finanças
 
 `CURSO: Sistemas de Informação`
 
@@ -10,16 +10,17 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
+* Arthur Martins Araujo
+* Diego Gomes Barbosa
+* Felipe Gomes de Oliveira
+* Gabriel Alves de Almeida
+* Maria Clara de Almeida Goes
+* Nícolas Tófoli da Silva
 
 
 ## Orientador
 
-* Nome completo do professor 1
+* Marco Rodrigo Costa
 
 # Planejamento
 
