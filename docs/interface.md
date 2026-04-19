@@ -40,40 +40,31 @@ Fluxo principal:
 A tela de login apresenta campos de e-mail e senha, além de botão de acesso e opção de cadastro.
 Requisitos atendidos: RF-01, RF-02
 
-A tela principal apresenta:
+**A tela principal apresenta:**
 
-Menu lateral com navegação
-Barra superior com informações do usuário
-Área central com:
-Saldo atual
-Total de receitas e despesas
-Resumo financeiro
+- Menu lateral com navegação
+- Barra superior com informações do usuário
+**Área central com:***
+- Saldo atual
+- Total de receitas e despesas
+- Resumo financeiro
 
 Requisitos atendidos: RF-05, RF-06
 
-Apresenta uma lista de receitas e despesas com:
+**Apresenta uma lista de receitas e despesas com:**
 
-Visualização de dados
-Filtros por período
-Opções de edição e exclusão
+- Visualização de dados
+- Filtros por período
+- Opções de edição e exclusão
 
 Requisitos atendidos: RF-06, RF-07, RF-10
 
-Contém um formulário com:
+**Contém um formulário com:**
 
-Tipo (receita ou despesa)
-Valor
-Categoria
-Data
-
-Requisitos atendidos: RF-03, RF-04, RF-08
-
-Contém um formulário com:
-
-Tipo (receita ou despesa)
-Valor
-Categoria
-Data
+- Tipo (receita ou despesa)
+- Valor
+- Categoria
+- Data
 
 Requisitos atendidos: RF-03, RF-04, RF-08
 
