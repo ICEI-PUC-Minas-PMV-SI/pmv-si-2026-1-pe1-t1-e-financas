@@ -1,38 +1,80 @@
 
 # Projeto de Interface
+A interface do sistema E-Finanças foi projetada com foco na simplicidade, usabilidade e acessibilidade, considerando principalmente o público-alvo composto por jovens adultos com baixa organização financeira.
 
-Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
+O sistema possui uma estrutura clara e organizada, composta por menu lateral de navegação, barra superior e área principal de conteúdo, permitindo que o usuário acesse facilmente todas as funcionalidades.
 
- Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
+As principais seções da aplicação incluem:
+
+Dashboard
+Transações
+Relatórios
+Metas
+Perfil
+
+A organização da interface foi definida com base nos requisitos funcionais, como cadastro de receitas e despesas (RF-03 e RF-04), visualização de saldo (RF-05) e relatórios (RF-09), além dos requisitos não funcionais, como usabilidade e simplicidade (RNF-02 e RNF-03).
 
 ## User Flow
+O fluxo de usuário do sistema E-Finanças foi estruturado para garantir uma navegação simples e intuitiva, permitindo que o usuário realize suas principais ações com poucos passos.
 
-![Exemplo de UserFlow](img/userflow.jpg)
-
-Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
-
-> **Links Úteis**:
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools & Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
-
+Fluxo principal:
+O usuário acessa o sistema
+Realiza cadastro (RF-01) ou login (RF-02)
+É redirecionado para o Dashboard
+A partir do Dashboard, o usuário pode:
+Visualizar saldo e resumo financeiro (RF-05)
+Registrar receitas ou despesas (RF-03 e RF-04)
+Acessar lista de transações (RF-06)
+Filtrar, editar ou excluir registros (RF-07 e RF-10)
+Visualizar relatórios (RF-09)
+Definir metas financeiras (RF-11)
+Acessar perfil
+Fluxos secundários:
+Cadastro de transação → atualização automática do saldo
+Edição/exclusão → atualização dos dados
+Relatórios → análise de gastos
+Metas → acompanhamento de progresso
 
 ## Wireframes
+A tela de login apresenta campos de e-mail e senha, além de botão de acesso e opção de cadastro.
+Requisitos atendidos: RF-01, RF-02
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface e é fundamental sempre relacionar cada wireframe com o(s) requisito(s) que ele atende.
+A tela principal apresenta:
 
-### Exemplo
+Menu lateral com navegação
+Barra superior com informações do usuário
+Área central com:
+Saldo atual
+Total de receitas e despesas
+Resumo financeiro
 
-A tela inicial apresenta um menu lateral com as principais seções do portal, enquanto a navigation bar, ao topo, apresenta informações de envio de imagens ou navegação pela galeria de fotos. A área central apresenta a galeria de fotos na forma de uma grade. Nesta tela, são apresentados os seguintes requisitos
+Requisitos atendidos: RF-05, RF-06
 
-![Exemplo de Wireframe](img/wireframe-example.png)
+Apresenta uma lista de receitas e despesas com:
 
- 
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
+Visualização de dados
+Filtros por período
+Opções de edição e exclusão
+
+Requisitos atendidos: RF-06, RF-07, RF-10
+
+Contém um formulário com:
+
+Tipo (receita ou despesa)
+Valor
+Categoria
+Data
+
+Requisitos atendidos: RF-03, RF-04, RF-08
+
+Contém um formulário com:
+
+Tipo (receita ou despesa)
+Valor
+Categoria
+Data
+
+Requisitos atendidos: RF-03, RF-04, RF-08
+
+Permite ao usuário definir metas financeiras e acompanhar seu progresso.
+Requisitos atendidos: RF-11
