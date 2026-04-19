@@ -18,22 +18,23 @@ A organização da interface foi definida com base nos requisitos funcionais, co
 O fluxo de usuário do sistema E-Finanças foi estruturado para garantir uma navegação simples e intuitiva, permitindo que o usuário realize suas principais ações com poucos passos.
 
 Fluxo principal:
-O usuário acessa o sistema
-Realiza cadastro (RF-01) ou login (RF-02)
-É redirecionado para o Dashboard
-A partir do Dashboard, o usuário pode:
-Visualizar saldo e resumo financeiro (RF-05)
-Registrar receitas ou despesas (RF-03 e RF-04)
-Acessar lista de transações (RF-06)
-Filtrar, editar ou excluir registros (RF-07 e RF-10)
-Visualizar relatórios (RF-09)
-Definir metas financeiras (RF-11)
-Acessar perfil
-Fluxos secundários:
-Cadastro de transação → atualização automática do saldo
-Edição/exclusão → atualização dos dados
-Relatórios → análise de gastos
-Metas → acompanhamento de progresso
+1. O usuário acessa o sistema
+2. Realiza cadastro (RF-01) ou login (RF-02)
+3. É redirecionado para o Dashboard
+
+**A partir do Dashboard, o usuário pode:**
+- Visualizar saldo e resumo financeiro (RF-05)
+- Registrar receitas ou despesas (RF-03 e RF-04)
+- Acessar lista de transações (RF-06)
+- Filtrar, editar ou excluir registros (RF-07 e RF-10)
+- Visualizar relatórios (RF-09)
+- Definir metas financeiras (RF-11)
+
+**Fluxos secundários:**
+- Cadastro de transação = atualização automática do saldo
+- Edição/exclusão = atualização dos dados
+- Relatórios = análise de gastos
+- Metas = acompanhamento de progresso
 
 ## Wireframes
 A tela de login apresenta campos de e-mail e senha, além de botão de acesso e opção de cadastro.
