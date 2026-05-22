@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-Finan&ccedil;as | Transa&ccedil;&otilde;es</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="page app-shell">
+      <aside class="sidebar" aria-label="Navega&ccedil;&atilde;o principal">
+        <a class="brand" href="transacoes.html" aria-label="E-Finan&ccedil;as">
+          <span class="brand__mark" aria-hidden="true">EF</span>
+          <span>
+            <span class="brand__name">E-Finan&ccedil;as</span>
+            <span class="brand__caption">Gest&atilde;o financeira</span>
+          </span>
+        </a>
+
+        <nav class="nav">
+          <a class="nav-link" href="#"><span class="nav-link__icon" aria-hidden="true">D</span>Dashboard</a>
+          <a class="nav-link nav-link--active" href="transacoes.html" aria-current="page"><span class="nav-link__icon" aria-hidden="true">T</span>Transa&ccedil;&otilde;es</a>
+          <a class="nav-link" href="#"><span class="nav-link__icon" aria-hidden="true">R</span>Relat&oacute;rios</a>
+          <a class="nav-link" href="#"><span class="nav-link__icon" aria-hidden="true">M</span>Metas</a>
+          <a class="nav-link" href="#"><span class="nav-link__icon" aria-hidden="true">P</span>Perfil</a>
+        </nav>
+
+        <div class="sidebar-profile" aria-label="Usu&aacute;rio conectado">
+          <strong>Maria Clara</strong>
+          <span>Perfil organizado</span>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="page-heading">
+            <h1>Transa&ccedil;&otilde;es</h1>
+            <p>Todas as suas movimenta&ccedil;&otilde;es financeiras.</p>
+          </div>
+          <div class="topbar-actions">
+            <a class="btn btn--primary" href="nova-transacao.html"><span aria-hidden="true">+</span>Nova transa&ccedil;&atilde;o</a>
+            <span class="avatar" aria-label="Usu&aacute;rio Maria Clara">MC</span>
+          </div>
+        </header>
+
+        <section class="summary-grid" aria-label="Resumo financeiro">
+          <article class="summary-card">
+            <p class="summary-card__label">Receitas do m&ecirc;s</p>
+            <strong class="summary-card__value value-income">R$ 5.300,00</strong>
+            <span class="summary-card__hint">2 entradas registradas</span>
+          </article>
+          <article class="summary-card">
+            <p class="summary-card__label">Despesas do m&ecirc;s</p>
+            <strong class="summary-card__value value-expense">R$ 1.261,30</strong>
+            <span class="summary-card__hint">3 sa&iacute;das registradas</span>
+          </article>
+          <article class="summary-card">
+            <p class="summary-card__label">Saldo filtrado</p>
+            <strong class="summary-card__value value-neutral">R$ 4.038,70</strong>
+            <span class="summary-card__hint">Abril de 2026</span>
+          </article>
+          <article class="summary-card">
+            <p class="summary-card__label">Transa&ccedil;&otilde;es</p>
+            <strong class="summary-card__value">5</strong>
+            <span class="summary-card__hint">Hist&oacute;rico recente</span>
+          </article>
+        </section>
+
+        <section class="toolbar" aria-label="Filtros de transa&ccedil;&otilde;es">
+          <label class="search-field">
+            <span class="filter-label">Buscar</span>
+            <input type="search" placeholder="Buscar transa&ccedil;&atilde;o...">
+          </label>
+          <label>
+            <span class="filter-label">Tipo</span>
+            <select class="filter-select" aria-label="Filtrar por tipo">
+              <option>Todas</option>
+              <option>Receitas</option>
+              <option>Despesas</option>
+            </select>
+          </label>
+          <label>
+            <span class="filter-label">Per&iacute;odo</span>
+            <select class="filter-select" aria-label="Filtrar por per&iacute;odo">
+              <option>Este m&ecirc;s</option>
+              <option>&Uacute;ltimos 3 meses</option>
+              <option>Este ano</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="transaction-card" aria-labelledby="historico-title">
+          <div class="section-heading">
+            <div>
+              <h2 id="historico-title">Hist&oacute;rico financeiro</h2>
+              <p>Data, categoria, descri&ccedil;&atilde;o e valor de cada movimenta&ccedil;&atilde;o.</p>
+            </div>
+          </div>
+
+          <div class="transaction-list">
+            <article class="transaction-item">
+              <span class="transaction-indicator transaction-indicator--expense" aria-hidden="true"></span>
+              <div class="transaction-main">
+                <span class="category-icon" aria-hidden="true">AL</span>
+                <div>
+                  <h3 class="transaction-title">Alimenta&ccedil;&atilde;o &middot; Almo&ccedil;o no restaurante</h3>
+                  <div class="transaction-meta">
+                    <span>Despesa</span>
+                    <span>16/04/2026</span>
+                  </div>
+                </div>
+              </div>
+              <div class="transaction-value">
+                <strong class="value-expense">-R$ 42,90</strong>
+                <div class="row-actions">
+                  <a class="action-link" href="#">Editar</a>
+                  <a class="action-link action-link--danger" href="#">Excluir</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="transaction-item">
+              <span class="transaction-indicator transaction-indicator--income" aria-hidden="true"></span>
+              <div class="transaction-main">
+                <span class="category-icon" aria-hidden="true">FR</span>
+                <div>
+                  <h3 class="transaction-title">Freelance &middot; Projeto landing page</h3>
+                  <div class="transaction-meta">
+                    <span>Receita</span>
+                    <span>15/04/2026</span>
+                  </div>
+                </div>
+              </div>
+              <div class="transaction-value">
+                <strong class="value-income">+R$ 800,00</strong>
+                <div class="row-actions">
+                  <a class="action-link" href="#">Editar</a>
+                  <a class="action-link action-link--danger" href="#">Excluir</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="transaction-item">
+              <span class="transaction-indicator transaction-indicator--expense" aria-hidden="true"></span>
+              <div class="transaction-main">
+                <span class="category-icon" aria-hidden="true">TR</span>
+                <div>
+                  <h3 class="transaction-title">Transporte &middot; &Ocirc;nibus e aplicativo</h3>
+                  <div class="transaction-meta">
+                    <span>Despesa</span>
+                    <span>14/04/2026</span>
+                  </div>
+                </div>
+              </div>
+              <div class="transaction-value">
+                <strong class="value-expense">-R$ 18,40</strong>
+                <div class="row-actions">
+                  <a class="action-link" href="#">Editar</a>
+                  <a class="action-link action-link--danger" href="#">Excluir</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="transaction-item">
+              <span class="transaction-indicator transaction-indicator--expense" aria-hidden="true"></span>
+              <div class="transaction-main">
+                <span class="category-icon" aria-hidden="true">MO</span>
+                <div>
+                  <h3 class="transaction-title">Moradia &middot; Aluguel</h3>
+                  <div class="transaction-meta">
+                    <span>Despesa</span>
+                    <span>10/04/2026</span>
+                  </div>
+                </div>
+              </div>
+              <div class="transaction-value">
+                <strong class="value-expense">-R$ 1.200,00</strong>
+                <div class="row-actions">
+                  <a class="action-link" href="#">Editar</a>
+                  <a class="action-link action-link--danger" href="#">Excluir</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="transaction-item">
+              <span class="transaction-indicator transaction-indicator--income" aria-hidden="true"></span>
+              <div class="transaction-main">
+                <span class="category-icon" aria-hidden="true">SA</span>
+                <div>
+                  <h3 class="transaction-title">Sal&aacute;rio &middot; Pagamento mensal</h3>
+                  <div class="transaction-meta">
+                    <span>Receita</span>
+                    <span>05/04/2026</span>
+                  </div>
+                </div>
+              </div>
+              <div class="transaction-value">
+                <strong class="value-income">+R$ 4.500,00</strong>
+                <div class="row-actions">
+                  <a class="action-link" href="#">Editar</a>
+                  <a class="action-link action-link--danger" href="#">Excluir</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

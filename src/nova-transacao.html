@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-Finan&ccedil;as | Nova transa&ccedil;&atilde;o</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="page app-shell">
+      <aside class="sidebar" aria-label="Navega&ccedil;&atilde;o principal">
+        <a class="brand" href="transacoes.html" aria-label="E-Finan&ccedil;as">
+          <span class="brand__mark" aria-hidden="true">EF</span>
+          <span>
+            <span class="brand__name">E-Finan&ccedil;as</span>
+            <span class="brand__caption">Gest&atilde;o financeira</span>
+          </span>
+        </a>
+
+        <nav class="nav">
+          <a class="nav-link" href="#"><span class="nav-link__icon" aria-hidden="true">D</span>Dashboard</a>
+          <a class="nav-link nav-link--active" href="transacoes.html" aria-current="page"><span class="nav-link__icon" aria-hidden="true">T</span>Transa&ccedil;&otilde;es</a>
+          <a class="nav-link" href="#"><span class="nav-link__icon" aria-hidden="true">R</span>Relat&oacute;rios</a>
+          <a class="nav-link" href="#"><span class="nav-link__icon" aria-hidden="true">M</span>Metas</a>
+          <a class="nav-link" href="#"><span class="nav-link__icon" aria-hidden="true">P</span>Perfil</a>
+        </nav>
+
+        <div class="sidebar-profile" aria-label="Usu&aacute;rio conectado">
+          <strong>Maria Clara</strong>
+          <span>Perfil organizado</span>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="page-heading">
+            <h1>Nova transa&ccedil;&atilde;o</h1>
+            <p>Registre uma receita ou despesa.</p>
+          </div>
+          <div class="topbar-actions">
+            <a class="btn btn--secondary" href="transacoes.html"><span aria-hidden="true">&larr;</span>Voltar</a>
+            <span class="avatar" aria-label="Usu&aacute;rio Maria Clara">MC</span>
+          </div>
+        </header>
+
+        <section class="form-layout">
+          <form class="card form" action="transacoes.html" method="get" aria-labelledby="dados-title">
+            <h2 id="dados-title">Dados da movimenta&ccedil;&atilde;o</h2>
+
+            <div class="field">
+              <span class="field__label">Tipo</span>
+              <div class="type-toggle" role="radiogroup" aria-label="Tipo da transa&ccedil;&atilde;o">
+                <label class="type-option type-option--expense">
+                  <input type="radio" name="tipo" value="despesa" checked>
+                  <span>Despesa</span>
+                </label>
+                <label class="type-option type-option--income">
+                  <input type="radio" name="tipo" value="receita">
+                  <span>Receita</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="valor">Valor (R$)</label>
+                <input id="valor" name="valor" type="text" inputmode="decimal" placeholder="0,00" required>
+              </div>
+
+              <div class="field">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" name="categoria" required>
+                  <option value="">Escolha uma categoria</option>
+                  <option>Alimenta&ccedil;&atilde;o</option>
+                  <option>Transporte</option>
+                  <option>Moradia</option>
+                  <option>Educa&ccedil;&atilde;o</option>
+                  <option>Sal&aacute;rio</option>
+                  <option>Freelance</option>
+                </select>
+              </div>
+
+              <div class="field field--full">
+                <label for="descricao">Descri&ccedil;&atilde;o (opcional)</label>
+                <textarea id="descricao" name="descricao" placeholder="Ex: Almo&ccedil;o no restaurante"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="data">Data</label>
+                <input id="data" name="data" type="date" value="2026-04-17" required>
+              </div>
+            </div>
+
+            <div class="status-box" role="status">
+              &Aacute;rea reservada para mensagens de valida&ccedil;&atilde;o, sucesso ou erro.
+            </div>
+
+            <div class="form-actions">
+              <a class="btn btn--secondary" href="transacoes.html">Cancelar</a>
+              <button class="btn btn--expense" type="submit">Adicionar transa&ccedil;&atilde;o</button>
+            </div>
+          </form>
+
+          <aside class="card preview-transaction" aria-labelledby="preview-title">
+            <h2 id="preview-title">Pr&eacute;via</h2>
+            <span class="preview-amount">-R$ 0,00</span>
+            <div class="preview-line">
+              <span>Tipo</span>
+              <strong>Despesa</strong>
+            </div>
+            <div class="preview-line">
+              <span>Categoria</span>
+              <strong>N&atilde;o definida</strong>
+            </div>
+            <div class="preview-line">
+              <span>Data</span>
+              <strong>17/04/2026</strong>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
