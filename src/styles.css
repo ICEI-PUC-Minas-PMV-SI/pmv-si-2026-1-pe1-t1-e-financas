@@ -75,6 +75,17 @@ button {
   box-shadow: var(--shadow-sm);
 }
 
+.register-shell {
+  display: grid;
+  width: min(560px, 100%);
+  gap: 22px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg-card);
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+}
+
 .login-panel {
   display: flex;
   flex-direction: column;
@@ -97,6 +108,10 @@ button {
   align-items: center;
   gap: 12px;
   font-weight: 700;
+}
+
+.brand--center {
+  justify-content: center;
 }
 
 .brand__mark {
@@ -137,6 +152,11 @@ button {
 
 .auth-header {
   margin: 54px 0 28px;
+}
+
+.auth-header--compact {
+  margin: 0;
+  text-align: center;
 }
 
 .eyebrow {
@@ -787,12 +807,164 @@ button {
   color: var(--color-text-primary);
 }
 
+.report-layout,
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 18px;
+  align-items: stretch;
+  margin-bottom: 18px;
+}
+
+.report-chart,
+.report-categories,
+.insights-card,
+.profile-side {
+  min-width: 0;
+}
+
+.section-heading--plain {
+  border-bottom: 0;
+  padding: 0 0 18px;
+}
+
+.bar-chart {
+  display: flex;
+  height: 220px;
+  align-items: flex-end;
+  gap: 14px;
+  border-radius: var(--radius-control);
+  background: var(--color-soft);
+  padding: 18px;
+}
+
+.bar-chart__bar {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 6px 6px 0 0;
+}
+
+.bar-chart__bar--primary {
+  background: var(--color-primary);
+}
+
+.bar-chart__bar--income {
+  background: var(--color-income);
+}
+
+.bar-chart__bar--expense {
+  background: var(--color-expense);
+}
+
+.report-categories {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 18px;
+}
+
+.donut-chart {
+  width: 132px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(var(--color-primary) 0 42%, var(--color-income) 42% 63%, var(--color-expense) 63% 75%, var(--color-soft) 75% 100%);
+  position: relative;
+}
+
+.donut-chart::after {
+  position: absolute;
+  inset: 24px;
+  border-radius: inherit;
+  background: #ffffff;
+  content: "";
+}
+
+.category-list,
+.insights-list,
+.profile-side {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.category-list {
+  display: grid;
+  width: 100%;
+  gap: 8px;
+}
+
+.category-list strong,
+.preference-item strong,
+.status-box strong {
+  color: var(--color-text-primary);
+}
+
+.insights-card h2,
+.profile-side h2 {
+  margin-bottom: 14px;
+}
+
+.insights-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.profile-layout {
+  margin-bottom: 0;
+}
+
+.profile-side {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.preference-item {
+  display: grid;
+  gap: 4px;
+  border-radius: var(--radius-control);
+  background: var(--color-bg-page);
+  padding: 14px;
+}
+
+.preference-item span,
+.profile-photo span {
+  font-size: 12px;
+}
+
+.profile-photo {
+  display: grid;
+  min-height: 120px;
+  place-items: center;
+  border-radius: var(--radius-card);
+  background: var(--color-soft);
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.profile-photo strong {
+  display: block;
+  color: var(--color-primary);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.status-box p {
+  margin: 6px 0 0;
+}
+
 @media (max-width: 1100px) {
   .summary-grid {
     grid-template-columns: repeat(2, minmax(160px, 1fr));
   }
 
   .form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .report-layout,
+  .profile-layout {
     grid-template-columns: 1fr;
   }
 }
@@ -827,13 +999,12 @@ button {
   }
 
   .nav {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    overflow-x: auto;
+    grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
+    overflow-x: visible;
   }
 
   .nav-link {
     justify-content: center;
-    min-width: 108px;
   }
 
   .sidebar-profile {
@@ -863,7 +1034,8 @@ button {
   }
 
   .login-panel,
-  .login-preview {
+  .login-preview,
+  .register-shell {
     padding: 28px 22px;
   }
 
@@ -903,6 +1075,10 @@ button {
 
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .bar-chart {
+    height: 180px;
   }
 
   .form-actions {
