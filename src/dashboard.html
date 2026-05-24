@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-Finan&ccedil;as | Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="page app-shell">
+      <aside class="sidebar" aria-label="Navega&ccedil;&atilde;o principal">
+        <a class="brand" href="dashboard.html" aria-label="E-Finan&ccedil;as">
+          <span class="brand__mark" aria-hidden="true">EF</span>
+          <span>
+            <span class="brand__name">E-Finan&ccedil;as</span>
+            <span class="brand__caption">Gest&atilde;o financeira</span>
+          </span>
+        </a>
+
+        <nav class="nav">
+          <a class="nav-link nav-link--active" href="dashboard.html" aria-current="page"><span class="nav-link__icon" aria-hidden="true">D</span>Dashboard</a>
+          <a class="nav-link" href="transacoes.html"><span class="nav-link__icon" aria-hidden="true">T</span>Transa&ccedil;&otilde;es</a>
+          <a class="nav-link" href="relatorios.html"><span class="nav-link__icon" aria-hidden="true">R</span>Relat&oacute;rios</a>
+          <a class="nav-link" href="metas.html"><span class="nav-link__icon" aria-hidden="true">M</span>Metas</a>
+          <a class="nav-link" href="perfil.html"><span class="nav-link__icon" aria-hidden="true">P</span>Perfil</a>
+        </nav>
+
+        <div class="sidebar-profile" aria-label="Usu&aacute;rio conectado">
+          <strong>Maria Clara</strong>
+          <span>Perfil organizado</span>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="page-heading">
+            <h1>Dashboard</h1>
+            <p>Resumo financeiro, movimenta&ccedil;&otilde;es recentes e progresso das metas.</p>
+          </div>
+          <div class="topbar-actions">
+            <a class="btn btn--primary" href="nova-transacao.html"><span aria-hidden="true">+</span>Nova transa&ccedil;&atilde;o</a>
+            <span class="avatar" aria-label="Usu&aacute;rio Maria Clara">MC</span>
+          </div>
+        </header>
+
+        <section class="summary-grid" aria-label="Resumo do dashboard">
+          <article class="summary-card">
+            <p class="summary-card__label">Saldo atual</p>
+            <strong class="summary-card__value value-neutral">R$ 5.195,10</strong>
+            <span class="summary-card__hint">Dispon&iacute;vel em abril</span>
+          </article>
+          <article class="summary-card">
+            <p class="summary-card__label">Receitas</p>
+            <strong class="summary-card__value value-income">R$ 8.050,00</strong>
+            <span class="summary-card__hint">+12% no m&ecirc;s</span>
+          </article>
+          <article class="summary-card">
+            <p class="summary-card__label">Despesas</p>
+            <strong class="summary-card__value value-expense">R$ 2.854,90</strong>
+            <span class="summary-card__hint">43% do or&ccedil;amento</span>
+          </article>
+          <article class="summary-card">
+            <p class="summary-card__label">Metas</p>
+            <strong class="summary-card__value">3 ativas</strong>
+            <span class="summary-card__hint">68% de progresso m&eacute;dio</span>
+          </article>
+        </section>
+
+        <section class="dashboard-layout" aria-label="Vis&atilde;o geral financeira">
+          <article class="card dashboard-balance" aria-labelledby="fluxo-title">
+            <div class="section-heading section-heading--plain">
+              <div>
+                <h2 id="fluxo-title">Fluxo do m&ecirc;s</h2>
+                <p>Compara&ccedil;&atilde;o entre entradas, sa&iacute;das e economia planejada.</p>
+              </div>
+            </div>
+            <div class="bar-chart bar-chart--compact" aria-label="Gr&aacute;fico do fluxo mensal">
+              <span class="bar-chart__bar bar-chart__bar--income" style="height: 82%"></span>
+              <span class="bar-chart__bar bar-chart__bar--expense" style="height: 46%"></span>
+              <span class="bar-chart__bar bar-chart__bar--primary" style="height: 64%"></span>
+              <span class="bar-chart__bar bar-chart__bar--income" style="height: 74%"></span>
+            </div>
+            <div class="metric-row" aria-label="Indicadores do fluxo mensal">
+              <span><strong>R$ 3.280,00</strong> economia prevista</span>
+              <span><strong>R$ 410,00</strong> livres para objetivos</span>
+            </div>
+          </article>
+
+          <aside class="card goals-overview" aria-labelledby="metas-dashboard-title">
+            <div class="section-heading section-heading--plain">
+              <div>
+                <h2 id="metas-dashboard-title">Metas priorit&aacute;rias</h2>
+                <p>Acompanhe o progresso mais importante.</p>
+              </div>
+              <a class="text-link" href="metas.html">Ver todas</a>
+            </div>
+            <div class="goal-mini-list">
+              <article class="goal-mini">
+                <div class="goal-mini__header">
+                  <strong>Reserva de emerg&ecirc;ncia</strong>
+                  <span>72%</span>
+                </div>
+                <div class="progress-track" aria-label="Progresso de 72%">
+                  <span class="progress-track__bar progress-track__bar--income" style="width: 72%"></span>
+                </div>
+              </article>
+              <article class="goal-mini">
+                <div class="goal-mini__header">
+                  <strong>Curso profissional</strong>
+                  <span>54%</span>
+                </div>
+                <div class="progress-track" aria-label="Progresso de 54%">
+                  <span class="progress-track__bar" style="width: 54%"></span>
+                </div>
+              </article>
+              <article class="goal-mini">
+                <div class="goal-mini__header">
+                  <strong>Viagem de fim de ano</strong>
+                  <span>38%</span>
+                </div>
+                <div class="progress-track" aria-label="Progresso de 38%">
+                  <span class="progress-track__bar progress-track__bar--warning" style="width: 38%"></span>
+                </div>
+              </article>
+            </div>
+          </aside>
+        </section>
+
+        <section class="dashboard-layout dashboard-layout--bottom" aria-label="Atividades recentes">
+          <article class="transaction-card dashboard-transactions" aria-labelledby="recentes-title">
+            <div class="section-heading">
+              <div>
+                <h2 id="recentes-title">Movimenta&ccedil;&otilde;es recentes</h2>
+                <p>&Uacute;ltimos registros que impactam o saldo.</p>
+              </div>
+              <a class="text-link" href="transacoes.html">Ver hist&oacute;rico</a>
+            </div>
+            <div class="transaction-list">
+              <article class="transaction-item transaction-item--compact">
+                <span class="transaction-indicator transaction-indicator--expense" aria-hidden="true"></span>
+                <div class="transaction-main">
+                  <span class="category-icon" aria-hidden="true">AL</span>
+                  <div>
+                    <h3 class="transaction-title">Alimenta&ccedil;&atilde;o &middot; Restaurante</h3>
+                    <div class="transaction-meta">
+                      <span>16/04/2026</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="transaction-value">
+                  <strong class="value-expense">-R$ 42,90</strong>
+                </div>
+              </article>
+              <article class="transaction-item transaction-item--compact">
+                <span class="transaction-indicator transaction-indicator--income" aria-hidden="true"></span>
+                <div class="transaction-main">
+                  <span class="category-icon" aria-hidden="true">FR</span>
+                  <div>
+                    <h3 class="transaction-title">Freelance &middot; Landing page</h3>
+                    <div class="transaction-meta">
+                      <span>15/04/2026</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="transaction-value">
+                  <strong class="value-income">+R$ 800,00</strong>
+                </div>
+              </article>
+              <article class="transaction-item transaction-item--compact">
+                <span class="transaction-indicator transaction-indicator--expense" aria-hidden="true"></span>
+                <div class="transaction-main">
+                  <span class="category-icon" aria-hidden="true">TR</span>
+                  <div>
+                    <h3 class="transaction-title">Transporte &middot; Aplicativo</h3>
+                    <div class="transaction-meta">
+                      <span>14/04/2026</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="transaction-value">
+                  <strong class="value-expense">-R$ 18,40</strong>
+                </div>
+              </article>
+            </div>
+          </article>
+
+          <aside class="card insights-card" aria-labelledby="proximas-acoes-title">
+            <h2 id="proximas-acoes-title">Pr&oacute;ximas a&ccedil;&otilde;es</h2>
+            <ul class="insights-list">
+              <li>Separar R$ 410,00 para acelerar a reserva de emerg&ecirc;ncia.</li>
+              <li>Revisar gastos de moradia antes do fechamento mensal.</li>
+              <li>Registrar despesas pequenas no mesmo dia para manter o saldo fiel.</li>
+            </ul>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -856,6 +856,136 @@ button {
   background: var(--color-expense);
 }
 
+.bar-chart--compact {
+  height: 190px;
+}
+
+.dashboard-layout,
+.goals-layout {
+  display: grid;
+  gap: 18px;
+  align-items: start;
+}
+
+.dashboard-layout {
+  grid-template-columns: minmax(0, 1fr) 360px;
+  margin-bottom: 18px;
+}
+
+.dashboard-layout--bottom {
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.dashboard-balance,
+.goals-overview,
+.dashboard-transactions {
+  min-width: 0;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.metric-row span,
+.goal-card__meta span {
+  border-radius: var(--radius-control);
+  background: var(--color-bg-page);
+  padding: 12px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.metric-row strong,
+.goal-card__meta strong,
+.goal-mini__header strong {
+  display: block;
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+.goal-mini-list,
+.goal-list,
+.goals-advice {
+  display: grid;
+  gap: 14px;
+}
+
+.goal-mini {
+  display: grid;
+  gap: 10px;
+}
+
+.goal-mini__header,
+.goal-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.goal-mini__header span,
+.goal-card__percent {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.progress-track {
+  overflow: hidden;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--color-soft);
+}
+
+.progress-track__bar {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+}
+
+.progress-track__bar--income {
+  background: var(--color-income);
+}
+
+.progress-track__bar--warning {
+  background: var(--color-warning);
+}
+
+.transaction-item--compact {
+  min-height: 76px;
+}
+
+.goals-layout {
+  grid-template-columns: minmax(0, 1fr) 340px;
+}
+
+.goal-card {
+  display: grid;
+  gap: 16px;
+}
+
+.goal-card h2 {
+  margin-bottom: 0;
+}
+
+.goal-card__description {
+  margin: -6px 0 0;
+  color: var(--color-text-secondary);
+}
+
+.goal-card__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.goals-advice {
+  align-content: start;
+}
+
 .report-categories {
   display: grid;
   align-content: start;
@@ -964,8 +1094,15 @@ button {
   }
 
   .report-layout,
-  .profile-layout {
+  .profile-layout,
+  .dashboard-layout,
+  .dashboard-layout--bottom,
+  .goals-layout {
     grid-template-columns: 1fr;
+  }
+
+  .goals-advice {
+    order: -1;
   }
 }
 
@@ -1079,6 +1216,11 @@ button {
 
   .bar-chart {
     height: 180px;
+  }
+
+  .metric-row,
+  .goal-card__meta {
+    grid-template-columns: 1fr;
   }
 
   .form-actions {

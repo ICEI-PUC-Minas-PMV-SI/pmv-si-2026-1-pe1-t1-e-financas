@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-Finan&ccedil;as | Metas</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="page app-shell">
+      <aside class="sidebar" aria-label="Navega&ccedil;&atilde;o principal">
+        <a class="brand" href="dashboard.html" aria-label="E-Finan&ccedil;as">
+          <span class="brand__mark" aria-hidden="true">EF</span>
+          <span>
+            <span class="brand__name">E-Finan&ccedil;as</span>
+            <span class="brand__caption">Gest&atilde;o financeira</span>
+          </span>
+        </a>
+
+        <nav class="nav">
+          <a class="nav-link" href="dashboard.html"><span class="nav-link__icon" aria-hidden="true">D</span>Dashboard</a>
+          <a class="nav-link" href="transacoes.html"><span class="nav-link__icon" aria-hidden="true">T</span>Transa&ccedil;&otilde;es</a>
+          <a class="nav-link" href="relatorios.html"><span class="nav-link__icon" aria-hidden="true">R</span>Relat&oacute;rios</a>
+          <a class="nav-link nav-link--active" href="metas.html" aria-current="page"><span class="nav-link__icon" aria-hidden="true">M</span>Metas</a>
+          <a class="nav-link" href="perfil.html"><span class="nav-link__icon" aria-hidden="true">P</span>Perfil</a>
+        </nav>
+
+        <div class="sidebar-profile" aria-label="Usu&aacute;rio conectado">
+          <strong>Maria Clara</strong>
+          <span>Perfil organizado</span>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="page-heading">
+            <h1>Metas</h1>
+            <p>Planeje objetivos financeiros e acompanhe quanto falta para alcan&ccedil;ar cada um.</p>
+          </div>
+          <div class="topbar-actions">
+            <button class="btn btn--primary" type="button"><span aria-hidden="true">+</span>Nova meta</button>
+            <span class="avatar" aria-label="Usu&aacute;rio Maria Clara">MC</span>
+          </div>
+        </header>
+
+        <section class="summary-grid" aria-label="Resumo das metas">
+          <article class="summary-card">
+            <p class="summary-card__label">Total planejado</p>
+            <strong class="summary-card__value">R$ 18.500,00</strong>
+            <span class="summary-card__hint">3 objetivos ativos</span>
+          </article>
+          <article class="summary-card">
+            <p class="summary-card__label">Valor guardado</p>
+            <strong class="summary-card__value value-income">R$ 10.360,00</strong>
+            <span class="summary-card__hint">56% do total</span>
+          </article>
+          <article class="summary-card">
+            <p class="summary-card__label">Progresso m&eacute;dio</p>
+            <strong class="summary-card__value value-neutral">68%</strong>
+            <span class="summary-card__hint">Acima do ritmo previsto</span>
+          </article>
+          <article class="summary-card">
+            <p class="summary-card__label">Pr&oacute;ximo prazo</p>
+            <strong class="summary-card__value">30/06</strong>
+            <span class="summary-card__hint">Curso profissional</span>
+          </article>
+        </section>
+
+        <section class="goals-layout" aria-label="Acompanhamento de metas">
+          <div class="goal-list">
+            <article class="card goal-card" aria-labelledby="meta-reserva-title">
+              <div class="goal-card__header">
+                <div>
+                  <p class="eyebrow">Prioridade alta</p>
+                  <h2 id="meta-reserva-title">Reserva de emerg&ecirc;ncia</h2>
+                </div>
+                <span class="goal-card__percent">72%</span>
+              </div>
+              <p class="goal-card__description">Criar uma reserva para cobrir despesas essenciais por pelo menos tr&ecirc;s meses.</p>
+              <div class="progress-track" aria-label="Progresso de 72%">
+                <span class="progress-track__bar progress-track__bar--income" style="width: 72%"></span>
+              </div>
+              <div class="goal-card__meta">
+                <span><strong>R$ 7.200,00</strong> guardados</span>
+                <span><strong>R$ 10.000,00</strong> objetivo</span>
+                <span><strong>31/12/2026</strong> prazo</span>
+              </div>
+            </article>
+
+            <article class="card goal-card" aria-labelledby="meta-curso-title">
+              <div class="goal-card__header">
+                <div>
+                  <p class="eyebrow">Educa&ccedil;&atilde;o</p>
+                  <h2 id="meta-curso-title">Curso profissional</h2>
+                </div>
+                <span class="goal-card__percent">54%</span>
+              </div>
+              <p class="goal-card__description">Guardar mensalmente para investir em forma&ccedil;&atilde;o e melhorar a renda futura.</p>
+              <div class="progress-track" aria-label="Progresso de 54%">
+                <span class="progress-track__bar" style="width: 54%"></span>
+              </div>
+              <div class="goal-card__meta">
+                <span><strong>R$ 1.620,00</strong> guardados</span>
+                <span><strong>R$ 3.000,00</strong> objetivo</span>
+                <span><strong>30/06/2026</strong> prazo</span>
+              </div>
+            </article>
+
+            <article class="card goal-card" aria-labelledby="meta-viagem-title">
+              <div class="goal-card__header">
+                <div>
+                  <p class="eyebrow">Lazer</p>
+                  <h2 id="meta-viagem-title">Viagem de fim de ano</h2>
+                </div>
+                <span class="goal-card__percent">38%</span>
+              </div>
+              <p class="goal-card__description">Organizar economias para viajar sem comprometer despesas fixas.</p>
+              <div class="progress-track" aria-label="Progresso de 38%">
+                <span class="progress-track__bar progress-track__bar--warning" style="width: 38%"></span>
+              </div>
+              <div class="goal-card__meta">
+                <span><strong>R$ 1.540,00</strong> guardados</span>
+                <span><strong>R$ 5.500,00</strong> objetivo</span>
+                <span><strong>20/11/2026</strong> prazo</span>
+              </div>
+            </article>
+          </div>
+
+          <aside class="card goals-advice" aria-labelledby="orientacoes-title">
+            <h2 id="orientacoes-title">Orienta&ccedil;&otilde;es</h2>
+            <div class="preference-item">
+              <span>Valor sugerido este m&ecirc;s</span>
+              <strong>R$ 410,00</strong>
+            </div>
+            <div class="preference-item">
+              <span>Meta recomendada</span>
+              <strong>Reserva de emerg&ecirc;ncia</strong>
+            </div>
+            <div class="preference-item">
+              <span>Ritmo atual</span>
+              <strong>Dentro do previsto</strong>
+            </div>
+            <section class="status-box" aria-labelledby="dica-title">
+              <strong id="dica-title">Dica de planejamento</strong>
+              <p>Priorize metas essenciais antes de objetivos de lazer. Pequenos aportes recorrentes mant&ecirc;m o progresso previs&iacute;vel.</p>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
