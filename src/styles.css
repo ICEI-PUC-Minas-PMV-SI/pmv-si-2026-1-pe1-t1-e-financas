@@ -1289,3 +1289,25 @@ button {
 .category-add button:hover {
     background: #4f46e5;
 }
+
+.auth-status {
+    min-height: 20px;
+    margin: 0;
+    color: #dc2626;
+    font-size: 14px;
+}
+
+.logout-button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #64748b;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+}
+
+.logout-button:hover,
+.logout-button:focus-visible {
+    color: #dc2626;
+}

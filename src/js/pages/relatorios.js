@@ -2,12 +2,22 @@ import { formatCurrency } from "../core/currency.js";
 import { renderProfileUi } from "../core/profile-ui.js";
 import { readJson } from "../core/storage.js";
 
+import { logout, requireUser } from "../auth/route-guard.js";
+import { bindLogout } from "../core/profile-ui.js";
+import { createUserStorage } from "../core/user-storage.js";
+
+const activeUser = requireUser();
+
+if (activeUser) {
+    const userStorage = createUserStorage(localStorage, activeUser.id);
+    bindLogout(() => logout());
+
 document.addEventListener(
 "DOMContentLoaded",
 () => {
 
     const transacoes =
-        readJson(localStorage, "transacoes", []) || [];
+        readJson(userStorage, "transacoes", []) || [];
 
     let receitas = 0;
     let despesas = 0;
@@ -239,7 +249,8 @@ document.addEventListener(
         </li>
     `;
 
-    const perfil = readJson(localStorage, "perfilUsuario");
+    const perfil = readJson(userStorage, "perfilUsuario");
 renderProfileUi(perfil);
 
 });
+}

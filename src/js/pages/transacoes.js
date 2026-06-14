@@ -2,6 +2,16 @@ import { formatCurrency } from "../core/currency.js";
 import { renderProfileUi } from "../core/profile-ui.js";
 import { readJson, writeJson } from "../core/storage.js";
 
+import { logout, requireUser } from "../auth/route-guard.js";
+import { bindLogout } from "../core/profile-ui.js";
+import { createUserStorage } from "../core/user-storage.js";
+
+const activeUser = requireUser();
+
+if (activeUser) {
+    const userStorage = createUserStorage(localStorage, activeUser.id);
+    bindLogout(() => logout());
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const lista = document.getElementById("transaction-list");
@@ -9,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const filtroTipo = document.getElementById("filtro-tipo");
 
     let transacoes =
-        readJson(localStorage, "transacoes", []) || [];
+        readJson(userStorage, "transacoes", []) || [];
 
     const moeda = formatCurrency;
 
@@ -186,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 t => t.id !== id
                             );
 
-                        writeJson(localStorage, "transacoes", transacoes);
+                        writeJson(userStorage, "transacoes", transacoes);
 
                         atualizarResumo();
                         renderizar();
@@ -209,7 +219,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderizar();
 
 
-const perfil = readJson(localStorage, "perfilUsuario");
+const perfil = readJson(userStorage, "perfilUsuario");
 renderProfileUi(perfil);
 
 });
+}

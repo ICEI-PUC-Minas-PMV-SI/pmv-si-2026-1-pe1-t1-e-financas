@@ -1,6 +1,17 @@
 import { renderProfileUi } from "../core/profile-ui.js";
 import { readJson, writeJson } from "../core/storage.js";
 
+import { logout, requireUser } from "../auth/route-guard.js";
+import { saveUser } from "../auth/account-repository.js";
+import { bindLogout } from "../core/profile-ui.js";
+import { createUserStorage } from "../core/user-storage.js";
+
+const activeUser = requireUser();
+
+if (activeUser) {
+    const userStorage = createUserStorage(localStorage, activeUser.id);
+    bindLogout(() => logout());
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const nome =
@@ -23,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
     const dadosSalvos =
-        readJson(localStorage, "perfilUsuario");
+        readJson(userStorage, "perfilUsuario");
 
     if (dadosSalvos) {
 
@@ -55,7 +66,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     telefone.value
             };
 
-            writeJson(localStorage, "perfilUsuario", perfil);
+            try {
+                saveUser(localStorage, {
+                    ...activeUser,
+                    nome: perfil.nome,
+                    email: perfil.email
+                });
+            } catch (error) {
+                mensagem.textContent = error.message;
+                return;
+            }
+
+            writeJson(userStorage, "perfilUsuario", perfil);
 
             mensagem.innerHTML = `
                 <strong>
@@ -70,3 +92,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 });
+}

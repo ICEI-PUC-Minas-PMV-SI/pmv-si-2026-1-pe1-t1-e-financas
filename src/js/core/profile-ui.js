@@ -22,3 +22,11 @@ export function renderProfileUi(profile, root = document) {
     avatar.textContent = getInitials(profile.nome);
   }
 }
+
+export function bindLogout(handler, root = document) {
+  const logoutButton = root.querySelector(".logout-button");
+
+  if (logoutButton) {
+    logoutButton.addEventListener("click", handler);
+  }
+}

@@ -2,10 +2,20 @@ import { formatCurrency } from "../core/currency.js";
 import { renderProfileUi } from "../core/profile-ui.js";
 import { readJson } from "../core/storage.js";
 
+import { logout, requireUser } from "../auth/route-guard.js";
+import { bindLogout } from "../core/profile-ui.js";
+import { createUserStorage } from "../core/user-storage.js";
+
+const activeUser = requireUser();
+
+if (activeUser) {
+    const userStorage = createUserStorage(localStorage, activeUser.id);
+    bindLogout(() => logout());
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const transacoes =
-        readJson(localStorage, "transacoes", []) || [];
+        readJson(userStorage, "transacoes", []) || [];
 
     const moeda = formatCurrency;
 
@@ -66,8 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
 
-        return;
-    }
+    } else {
 
     const recentes =
         [...transacoes]
@@ -159,9 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         lista.appendChild(item);
     });
+    }
 
 
-    const perfil = readJson(localStorage, "perfilUsuario");
+    const perfil = readJson(userStorage, "perfilUsuario");
     renderProfileUi(perfil);
 
 const ctxDashboard =
@@ -224,7 +234,7 @@ if(ctxDashboard){
 }
 
 const metas =
-    readJson(localStorage, "metas", []) || [];
+    readJson(userStorage, "metas", []) || [];
 
 const totalMetas =
     document.getElementById(
@@ -407,3 +417,4 @@ if(metas.length === 0){
 }
 
 });
+}

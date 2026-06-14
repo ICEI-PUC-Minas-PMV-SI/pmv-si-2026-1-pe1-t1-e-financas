@@ -2,6 +2,16 @@ import { formatCurrency } from "../core/currency.js";
 import { renderProfileUi } from "../core/profile-ui.js";
 import { readJson, writeJson } from "../core/storage.js";
 
+import { logout, requireUser } from "../auth/route-guard.js";
+import { bindLogout } from "../core/profile-ui.js";
+import { createUserStorage } from "../core/user-storage.js";
+
+const activeUser = requireUser();
+
+if (activeUser) {
+    const userStorage = createUserStorage(localStorage, activeUser.id);
+    bindLogout(() => logout());
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const btnNovaMeta = document.getElementById("btnNovaMeta");
@@ -19,10 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let metaSelecionada = null;
 
     let metas =
-        readJson(localStorage, "metas", []) || [];
+        readJson(userStorage, "metas", []) || [];
 
     function salvarMetas() {
-        writeJson(localStorage, "metas", metas);
+        writeJson(userStorage, "metas", metas);
     }
 
     const moeda = formatCurrency;
@@ -359,7 +369,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderizarMetas();
 
 
-const perfil = readJson(localStorage, "perfilUsuario");
+const perfil = readJson(userStorage, "perfilUsuario");
 renderProfileUi(perfil);
 
 });
+}

@@ -1,5 +1,15 @@
 import { readJson, writeJson } from "../core/storage.js";
 
+import { logout, requireUser } from "../auth/route-guard.js";
+import { bindLogout } from "../core/profile-ui.js";
+import { createUserStorage } from "../core/user-storage.js";
+
+const activeUser = requireUser();
+
+if (activeUser) {
+    const userStorage = createUserStorage(localStorage, activeUser.id);
+    bindLogout(() => logout());
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const valorInput = document.getElementById("valor");
@@ -26,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "Educação"
     ];
 
-    let categorias = readJson(localStorage, "categorias");
+    let categorias = readJson(userStorage, "categorias");
 
     if (!categorias) {
         categorias = [...categoriasBase];
-        writeJson(localStorage, "categorias", categorias);
+        writeJson(userStorage, "categorias", categorias);
     }
 
     function renderCategorias() {
@@ -58,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (existe) return;
 
         categorias.push(nome);
-        writeJson(localStorage, "categorias", categorias);
+        writeJson(userStorage, "categorias", categorias);
         renderCategorias();
         categoriaSelect.value = nome;
     }
@@ -69,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (categoriasBase.includes(valor)) return;
 
         categorias = categorias.filter(c => c !== valor);
-        writeJson(localStorage, "categorias", categorias);
+        writeJson(userStorage, "categorias", categorias);
         renderCategorias();
     }
 
@@ -140,10 +150,10 @@ document.addEventListener("DOMContentLoaded", () => {
             data
         };
 
-        const transacoes = readJson(localStorage, "transacoes", []) || [];
+        const transacoes = readJson(userStorage, "transacoes", []) || [];
         transacoes.push(novaTransacao);
 
-        writeJson(localStorage, "transacoes", transacoes);
+        writeJson(userStorage, "transacoes", transacoes);
 
         statusBox.textContent = "Transação cadastrada com sucesso!";
         statusBox.style.color = "#16a34a";
@@ -156,3 +166,4 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarPreview();
 
 });
+}
