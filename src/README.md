@@ -2,7 +2,21 @@
 
 ## Instalação do Site
 
-O site em HTML/CSS/JS é um projeto estático, logo pode ser utilizado tanto em servidores...
+O site utiliza módulos JavaScript nativos e deve ser executado por um servidor web.
+
+Na raiz do projeto, execute:
+
+```bash
+python3 -m http.server 8000 --directory src
+```
+
+Depois, acesse `http://localhost:8000`.
+
+Para executar os testes automatizados:
+
+```bash
+npm test
+```
 
 ## Histórico de versões
 
