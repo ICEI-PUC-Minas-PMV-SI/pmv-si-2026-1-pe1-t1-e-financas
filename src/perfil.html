@@ -3,31 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>E-Finan&ccedil;as | Perfil</title>
+    <title>E-Finanças | Perfil</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="page app-shell">
-      <aside class="sidebar" aria-label="Navega&ccedil;&atilde;o principal">
-        <a class="brand" href="dashboard.html" aria-label="E-Finan&ccedil;as">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand" href="dashboard.html" aria-label="E-Finanças">
           <span class="brand__mark" aria-hidden="true">EF</span>
           <span>
-            <span class="brand__name">E-Finan&ccedil;as</span>
-            <span class="brand__caption">Gest&atilde;o financeira</span>
+            <span class="brand__name">E-Finanças</span>
+            <span class="brand__caption">Gestão financeira</span>
           </span>
         </a>
 
         <nav class="nav">
           <a class="nav-link" href="dashboard.html"><span class="nav-link__icon" aria-hidden="true">D</span>Dashboard</a>
-          <a class="nav-link" href="transacoes.html"><span class="nav-link__icon" aria-hidden="true">T</span>Transa&ccedil;&otilde;es</a>
-          <a class="nav-link" href="relatorios.html"><span class="nav-link__icon" aria-hidden="true">R</span>Relat&oacute;rios</a>
+          <a class="nav-link" href="transacoes.html"><span class="nav-link__icon" aria-hidden="true">T</span>Transações</a>
+          <a class="nav-link" href="relatorios.html"><span class="nav-link__icon" aria-hidden="true">R</span>Relatórios</a>
           <a class="nav-link" href="metas.html"><span class="nav-link__icon" aria-hidden="true">M</span>Metas</a>
           <a class="nav-link nav-link--active" href="perfil.html" aria-current="page"><span class="nav-link__icon" aria-hidden="true">P</span>Perfil</a>
         </nav>
 
-        <div class="sidebar-profile" aria-label="Usu&aacute;rio conectado">
-          <strong>Maria Clara</strong>
-          <span>Perfil organizado</span>
+        <div class="sidebar-profile" aria-label="Usuário conectado">
+          <strong id="nomeUsuario">Usuário</strong>
+          <span id="statusPerfil">Perfil organizado</span>
         </div>
       </aside>
 
@@ -35,11 +35,10 @@
         <header class="topbar">
           <div class="page-heading">
             <h1>Perfil</h1>
-            <p>Dados pessoais, seguran&ccedil;a e prefer&ecirc;ncias.</p>
+            <p>Dados pessoais, segurança e preferências.</p>
           </div>
           <div class="topbar-actions">
-            <button class="btn btn--primary" type="button">Salvar altera&ccedil;&otilde;es</button>
-            <span class="avatar" aria-label="Usu&aacute;rio Maria Clara">MC</span>
+            <button id="btnSalvarPerfil" class="btn btn--primary" type="button">Salvar alterações</button>
           </div>
         </header>
 
@@ -62,16 +61,16 @@
               <input id="telefone" name="telefone" type="tel" value="(31) 99999-0000" autocomplete="tel">
             </div>
 
-            <section class="status-box" aria-labelledby="seguranca-title">
-              <strong id="seguranca-title">Seguran&ccedil;a</strong>
-              <p>Senha atualizada h&aacute; 18 dias. Autentica&ccedil;&atilde;o em duas etapas pendente.</p>
+            <section id="mensagemPerfil" class="status-box" aria-labelledby="seguranca-title">
+              <strong id="seguranca-title">Segurança</strong>
+              <p>Senha atualizada há 18 dias. Autenticação em duas etapas pendente.</p>
             </section>
           </form>
 
           <aside class="card profile-side" aria-labelledby="preferencias-title">
-            <h2 id="preferencias-title">Prefer&ecirc;ncias</h2>
+            <h2 id="preferencias-title">Preferências</h2>
             <div class="preference-item">
-              <span>Moeda padr&atilde;o</span>
+              <span>Moeda padrão</span>
               <strong>Real brasileiro (BRL)</strong>
             </div>
             <div class="preference-item">
@@ -80,15 +79,189 @@
             </div>
             <div class="preference-item">
               <span>Meta principal</span>
-              <strong>Reserva de emerg&ecirc;ncia</strong>
-            </div>
-            <div class="profile-photo" aria-label="Foto do perfil">
-              <strong>MC</strong>
-              <span>Foto do perfil</span>
+              <strong>Reserva de emergência</strong>
             </div>
           </aside>
         </section>
       </main>
     </div>
+
+   <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const nome =
+        document.getElementById("nome");
+
+    const email =
+        document.getElementById("email");
+
+    const telefone =
+        document.getElementById("telefone");
+
+    const btnSalvar =
+        document.getElementById(
+            "btnSalvarPerfil"
+        );
+
+    const mensagem =
+        document.getElementById(
+            "mensagemPerfil"
+        );
+
+    const dadosSalvos =
+        JSON.parse(
+            localStorage.getItem(
+                "perfilUsuario"
+            )
+        );
+
+    if (dadosSalvos) {
+
+        nome.value =
+            dadosSalvos.nome || "";
+
+        email.value =
+            dadosSalvos.email || "";
+
+        telefone.value =
+            dadosSalvos.telefone || "";
+
+        const sidebarNome =
+            document.querySelector(
+                ".sidebar-profile strong"
+            );
+
+        if (sidebarNome) {
+            sidebarNome.textContent =
+                dadosSalvos.nome;
+        }
+
+        const avatar =
+            document.querySelector(
+                ".avatar"
+            );
+
+        if (avatar) {
+
+            const iniciais =
+                dadosSalvos.nome
+                .split(" ")
+                .map(
+                    palavra => palavra[0]
+                )
+                .join("")
+                .substring(0, 2)
+                .toUpperCase();
+
+            avatar.textContent =
+                iniciais;
+        }
+    }
+
+    btnSalvar.addEventListener(
+        "click",
+        () => {
+
+            const perfil = {
+
+                nome:
+                    nome.value,
+
+                email:
+                    email.value,
+
+                telefone:
+                    telefone.value
+            };
+
+            localStorage.setItem(
+                "perfilUsuario",
+                JSON.stringify(perfil)
+            );
+
+            mensagem.innerHTML = `
+                <strong>
+                    Dados salvos com sucesso
+                </strong>
+                <p>
+                    Suas informações foram atualizadas.
+                </p>
+            `;
+
+            const sidebarNome =
+                document.querySelector(
+                    ".sidebar-profile strong"
+                );
+
+            if (sidebarNome) {
+                sidebarNome.textContent =
+                    perfil.nome;
+            }
+
+            const avatar =
+                document.querySelector(
+                    ".avatar"
+                );
+
+            if (avatar) {
+
+                const iniciais =
+                    perfil.nome
+                    .split(" ")
+                    .map(
+                        palavra => palavra[0]
+                    )
+                    .join("")
+                    .substring(0, 2)
+                    .toUpperCase();
+
+                avatar.textContent =
+                    iniciais;
+            }
+        }
+    );
+        const perfil =
+    JSON.parse(
+        localStorage.getItem(
+            "perfilUsuario"
+        )
+    );
+
+if(perfil){
+
+    const sidebarNome =
+        document.querySelector(
+            ".sidebar-profile strong"
+        );
+
+    if(sidebarNome){
+        sidebarNome.textContent =
+            perfil.nome;
+    }
+
+    const avatar =
+        document.querySelector(
+            ".avatar"
+        );
+
+    if(avatar){
+
+        const iniciais =
+            perfil.nome
+            .split(" ")
+            .map(
+                palavra => palavra[0]
+            )
+            .join("")
+            .substring(0,2)
+            .toUpperCase();
+
+        avatar.textContent =
+            iniciais;
+    }
+}
+});
+</script>
+
   </body>
 </html>

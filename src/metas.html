@@ -3,31 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>E-Finan&ccedil;as | Metas</title>
+    <title>E-Finanças | Metas</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="page app-shell">
-      <aside class="sidebar" aria-label="Navega&ccedil;&atilde;o principal">
-        <a class="brand" href="dashboard.html" aria-label="E-Finan&ccedil;as">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand" href="dashboard.html" aria-label="E-Finanças">
           <span class="brand__mark" aria-hidden="true">EF</span>
           <span>
-            <span class="brand__name">E-Finan&ccedil;as</span>
-            <span class="brand__caption">Gest&atilde;o financeira</span>
+            <span class="brand__name">E-Finanças</span>
+            <span class="brand__caption">Gestão financeira</span>
           </span>
         </a>
 
         <nav class="nav">
           <a class="nav-link" href="dashboard.html"><span class="nav-link__icon" aria-hidden="true">D</span>Dashboard</a>
-          <a class="nav-link" href="transacoes.html"><span class="nav-link__icon" aria-hidden="true">T</span>Transa&ccedil;&otilde;es</a>
-          <a class="nav-link" href="relatorios.html"><span class="nav-link__icon" aria-hidden="true">R</span>Relat&oacute;rios</a>
+          <a class="nav-link" href="transacoes.html"><span class="nav-link__icon" aria-hidden="true">T</span>Transações</a>
+          <a class="nav-link" href="relatorios.html"><span class="nav-link__icon" aria-hidden="true">R</span>Relatórios</a>
           <a class="nav-link nav-link--active" href="metas.html" aria-current="page"><span class="nav-link__icon" aria-hidden="true">M</span>Metas</a>
           <a class="nav-link" href="perfil.html"><span class="nav-link__icon" aria-hidden="true">P</span>Perfil</a>
         </nav>
 
-        <div class="sidebar-profile" aria-label="Usu&aacute;rio conectado">
-          <strong>Maria Clara</strong>
-          <span>Perfil organizado</span>
+        <div class="sidebar-profile" aria-label="Usuário conectado">
+          <strong id="nomeUsuario">Usuário</strong>
+          <span id="statusPerfil">Perfil organizado</span>
         </div>
       </aside>
 
@@ -35,11 +35,11 @@
         <header class="topbar">
           <div class="page-heading">
             <h1>Metas</h1>
-            <p>Planeje objetivos financeiros e acompanhe quanto falta para alcan&ccedil;ar cada um.</p>
+            <p>Planeje objetivos financeiros e acompanhe quanto falta para alcançar cada um.</p>
           </div>
           <div class="topbar-actions">
-            <button class="btn btn--primary" type="button"><span aria-hidden="true">+</span>Nova meta</button>
-            <span class="avatar" aria-label="Usu&aacute;rio Maria Clara">MC</span>
+            <button id="btnNovaMeta" class="btn btn--primary" type="button">Adicionar meta</button>
+            <span class="avatar" aria-label="Usuário Maria Clara">MC</span>
           </div>
         </header>
 
@@ -55,86 +55,30 @@
             <span class="summary-card__hint">56% do total</span>
           </article>
           <article class="summary-card">
-            <p class="summary-card__label">Progresso m&eacute;dio</p>
+            <p class="summary-card__label">Progresso médio</p>
             <strong class="summary-card__value value-neutral">68%</strong>
             <span class="summary-card__hint">Acima do ritmo previsto</span>
           </article>
           <article class="summary-card">
-            <p class="summary-card__label">Pr&oacute;ximo prazo</p>
+            <p class="summary-card__label">Próximo prazo</p>
             <strong class="summary-card__value">30/06</strong>
             <span class="summary-card__hint">Curso profissional</span>
           </article>
         </section>
 
         <section class="goals-layout" aria-label="Acompanhamento de metas">
-          <div class="goal-list">
-            <article class="card goal-card" aria-labelledby="meta-reserva-title">
-              <div class="goal-card__header">
-                <div>
-                  <p class="eyebrow">Prioridade alta</p>
-                  <h2 id="meta-reserva-title">Reserva de emerg&ecirc;ncia</h2>
-                </div>
-                <span class="goal-card__percent">72%</span>
-              </div>
-              <p class="goal-card__description">Criar uma reserva para cobrir despesas essenciais por pelo menos tr&ecirc;s meses.</p>
-              <div class="progress-track" aria-label="Progresso de 72%">
-                <span class="progress-track__bar progress-track__bar--income" style="width: 72%"></span>
-              </div>
-              <div class="goal-card__meta">
-                <span><strong>R$ 7.200,00</strong> guardados</span>
-                <span><strong>R$ 10.000,00</strong> objetivo</span>
-                <span><strong>31/12/2026</strong> prazo</span>
-              </div>
-            </article>
-
-            <article class="card goal-card" aria-labelledby="meta-curso-title">
-              <div class="goal-card__header">
-                <div>
-                  <p class="eyebrow">Educa&ccedil;&atilde;o</p>
-                  <h2 id="meta-curso-title">Curso profissional</h2>
-                </div>
-                <span class="goal-card__percent">54%</span>
-              </div>
-              <p class="goal-card__description">Guardar mensalmente para investir em forma&ccedil;&atilde;o e melhorar a renda futura.</p>
-              <div class="progress-track" aria-label="Progresso de 54%">
-                <span class="progress-track__bar" style="width: 54%"></span>
-              </div>
-              <div class="goal-card__meta">
-                <span><strong>R$ 1.620,00</strong> guardados</span>
-                <span><strong>R$ 3.000,00</strong> objetivo</span>
-                <span><strong>30/06/2026</strong> prazo</span>
-              </div>
-            </article>
-
-            <article class="card goal-card" aria-labelledby="meta-viagem-title">
-              <div class="goal-card__header">
-                <div>
-                  <p class="eyebrow">Lazer</p>
-                  <h2 id="meta-viagem-title">Viagem de fim de ano</h2>
-                </div>
-                <span class="goal-card__percent">38%</span>
-              </div>
-              <p class="goal-card__description">Organizar economias para viajar sem comprometer despesas fixas.</p>
-              <div class="progress-track" aria-label="Progresso de 38%">
-                <span class="progress-track__bar progress-track__bar--warning" style="width: 38%"></span>
-              </div>
-              <div class="goal-card__meta">
-                <span><strong>R$ 1.540,00</strong> guardados</span>
-                <span><strong>R$ 5.500,00</strong> objetivo</span>
-                <span><strong>20/11/2026</strong> prazo</span>
-              </div>
-            </article>
+          <div class="goal-list" id="listaMetas">
           </div>
 
           <aside class="card goals-advice" aria-labelledby="orientacoes-title">
-            <h2 id="orientacoes-title">Orienta&ccedil;&otilde;es</h2>
+            <h2 id="orientacoes-title">Orientações</h2>
             <div class="preference-item">
-              <span>Valor sugerido este m&ecirc;s</span>
+              <span>Valor sugerido este mês</span>
               <strong>R$ 410,00</strong>
             </div>
             <div class="preference-item">
               <span>Meta recomendada</span>
-              <strong>Reserva de emerg&ecirc;ncia</strong>
+              <strong>Reserva de emergência</strong>
             </div>
             <div class="preference-item">
               <span>Ritmo atual</span>
@@ -142,11 +86,486 @@
             </div>
             <section class="status-box" aria-labelledby="dica-title">
               <strong id="dica-title">Dica de planejamento</strong>
-              <p>Priorize metas essenciais antes de objetivos de lazer. Pequenos aportes recorrentes mant&ecirc;m o progresso previs&iacute;vel.</p>
+              <p>Priorize metas essenciais antes de objetivos de lazer. Pequenos aportes recorrentes mantém o progresso previsível.</p>
             </section>
           </aside>
         </section>
       </main>
     </div>
+
+<div id="modalMeta" class="modal-overlay" style="display:none;">
+  <div class="card modal-card">
+    <h2>Nova Meta</h2>
+
+    <div class="field">
+      <label>Nome da Meta</label>
+      <input type="text" id="metaNome">
+    </div>
+
+    <div class="field">
+      <label>Valor Objetivo (R$)</label>
+      <input type="number" id="metaObjetivo">
+    </div>
+
+    <div class="field">
+      <label>Valor Guardado (R$)</label>
+      <input type="number" id="metaGuardado" value="0">
+    </div>
+
+    <div class="field">
+      <label>Prazo</label>
+      <input type="date" id="metaPrazo">
+    </div>
+
+    <div class="form-actions">
+      <button id="cancelarMeta" class="btn btn--secondary">
+        Cancelar
+      </button>
+
+      <button id="salvarMeta" class="btn btn--primary">
+        Salvar Meta
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="modalAdicionar" class="modal-overlay" style="display:none;">
+  <div class="card modal-card">
+
+    <h2>Adicionar Valor</h2>
+
+    <div class="field">
+      <label>Valor (R$)</label>
+      <input type="number" id="valorAdicionar">
+    </div>
+
+    <div class="form-actions">
+      <button id="cancelarAdicionar" class="btn btn--secondary">
+        Cancelar
+      </button>
+
+      <button id="confirmarAdicionar" class="btn btn--primary">
+        Adicionar
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const btnNovaMeta = document.getElementById("btnNovaMeta");
+    const listaMetas = document.getElementById("listaMetas");
+
+    const modalMeta = document.getElementById("modalMeta");
+    const modalAdicionar = document.getElementById("modalAdicionar");
+
+    const salvarMetaBtn = document.getElementById("salvarMeta");
+    const cancelarMetaBtn = document.getElementById("cancelarMeta");
+
+    const cancelarAdicionarBtn = document.getElementById("cancelarAdicionar");
+    const confirmarAdicionarBtn = document.getElementById("confirmarAdicionar");
+
+    let metaSelecionada = null;
+
+    let metas =
+        JSON.parse(
+            localStorage.getItem("metas")
+        ) || [];
+
+    function salvarMetas() {
+        localStorage.setItem(
+            "metas",
+            JSON.stringify(metas)
+        );
+    }
+
+    function moeda(valor) {
+        return valor.toLocaleString(
+            "pt-BR",
+            {
+                style: "currency",
+                currency: "BRL"
+            }
+        );
+    }
+
+    function atualizarResumo() {
+
+        const totalPlanejado =
+            metas.reduce(
+                (s, m) => s + m.objetivo,
+                0
+            );
+
+        const totalGuardado =
+            metas.reduce(
+                (s, m) => s + m.guardado,
+                0
+            );
+
+        const progresso =
+            totalPlanejado > 0
+            ? Math.round(
+                (totalGuardado / totalPlanejado) * 100
+            )
+            : 0;
+
+        const cards =
+            document.querySelectorAll(
+                ".summary-card__value"
+            );
+
+        if (cards.length >= 3) {
+
+            cards[0].textContent =
+                moeda(totalPlanejado);
+
+            cards[1].textContent =
+                moeda(totalGuardado);
+
+            cards[2].textContent =
+                progresso + "%";
+        }
+    }
+
+    function renderizarMetas() {
+
+        listaMetas.innerHTML = "";
+
+        if (metas.length === 0) {
+
+            listaMetas.innerHTML = `
+                <div class="card" style="padding:30px;text-align:center;">
+                    Nenhuma meta cadastrada.
+                </div>
+            `;
+
+            atualizarResumo();
+            return;
+        }
+
+        metas.forEach(meta => {
+
+            const percentual =
+                Math.min(
+                    100,
+                    Math.round(
+                        (meta.guardado / meta.objetivo) * 100
+                    )
+                );
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "card goal-card";
+
+            card.innerHTML = `
+                <div class="goal-card__header">
+                    <div>
+                        <p class="eyebrow">
+                            Meta financeira
+                        </p>
+                        <h2>${meta.nome}</h2>
+                    </div>
+
+                    <span class="goal-card__percent">
+                        ${percentual}%
+                    </span>
+                </div>
+
+                <div class="progress-track">
+                    <span
+                        class="progress-track__bar"
+                        style="width:${percentual}%">
+                    </span>
+                </div>
+
+                <div class="goal-card__meta">
+
+                    <span>
+                        <strong>
+                            ${moeda(meta.guardado)}
+                        </strong>
+                        guardados
+                    </span>
+
+                    <span>
+                        <strong>
+                            ${moeda(meta.objetivo)}
+                        </strong>
+                        objetivo
+                    </span>
+
+                    <span>
+                        <strong>
+                            ${new Date(meta.prazo)
+                                .toLocaleDateString("pt-BR")}
+                        </strong>
+                        prazo
+                    </span>
+
+                </div>
+
+                <div style="
+                    display:flex;
+                    gap:10px;
+                    margin-top:20px;
+                    flex-wrap:wrap;
+                ">
+
+                    <button
+                        class="btn btn--primary adicionar"
+                        data-id="${meta.id}">
+                        Adicionar valor
+                    </button>
+
+                    <button
+                        class="btn btn--secondary excluir"
+                        data-id="${meta.id}">
+                        Excluir
+                    </button>
+
+                </div>
+            `;
+
+            listaMetas.appendChild(card);
+        });
+
+        atualizarResumo();
+
+        document
+            .querySelectorAll(".adicionar")
+            .forEach(btn => {
+
+                btn.addEventListener(
+                    "click",
+                    () => {
+
+                        metaSelecionada =
+                            Number(
+                                btn.dataset.id
+                            );
+
+                        document
+                            .getElementById(
+                                "valorAdicionar"
+                            )
+                            .value = "";
+
+                        modalAdicionar.style.display =
+                            "flex";
+                    }
+                );
+            });
+
+        document
+            .querySelectorAll(".excluir")
+            .forEach(btn => {
+
+                btn.addEventListener(
+                    "click",
+                    () => {
+
+                        if (
+                            !confirm(
+                                "Excluir esta meta?"
+                            )
+                        ) return;
+
+                        metas =
+                            metas.filter(
+                                m =>
+                                    m.id !==
+                                    Number(
+                                        btn.dataset.id
+                                    )
+                            );
+
+                        salvarMetas();
+                        renderizarMetas();
+                    }
+                );
+            });
+    }
+
+    btnNovaMeta.addEventListener(
+        "click",
+        () => {
+            modalMeta.style.display =
+                "flex";
+        }
+    );
+
+    cancelarMetaBtn.addEventListener(
+        "click",
+        () => {
+            modalMeta.style.display =
+                "none";
+        }
+    );
+
+    salvarMetaBtn.addEventListener(
+        "click",
+        () => {
+
+            const nome =
+                document.getElementById(
+                    "metaNome"
+                ).value;
+
+            const objetivo =
+                parseFloat(
+                    document.getElementById(
+                        "metaObjetivo"
+                    ).value
+                );
+
+            const guardado =
+                parseFloat(
+                    document.getElementById(
+                        "metaGuardado"
+                    ).value
+                ) || 0;
+
+            const prazo =
+                document.getElementById(
+                    "metaPrazo"
+                ).value;
+
+            if (
+                !nome ||
+                !objetivo ||
+                !prazo
+            ) {
+                alert(
+                    "Preencha todos os campos."
+                );
+                return;
+            }
+
+            metas.push({
+                id: Date.now(),
+                nome,
+                objetivo,
+                guardado,
+                prazo
+            });
+
+            salvarMetas();
+            renderizarMetas();
+
+            modalMeta.style.display =
+                "none";
+
+            document.getElementById(
+                "metaNome"
+            ).value = "";
+
+            document.getElementById(
+                "metaObjetivo"
+            ).value = "";
+
+            document.getElementById(
+                "metaGuardado"
+            ).value = "0";
+
+            document.getElementById(
+                "metaPrazo"
+            ).value = "";
+        }
+    );
+
+    cancelarAdicionarBtn.addEventListener(
+        "click",
+        () => {
+            modalAdicionar.style.display =
+                "none";
+        }
+    );
+
+    confirmarAdicionarBtn.addEventListener(
+        "click",
+        () => {
+
+            const valor =
+                parseFloat(
+                    document.getElementById(
+                        "valorAdicionar"
+                    ).value
+                );
+
+            if (isNaN(valor))
+                return;
+
+            const meta =
+                metas.find(
+                    m =>
+                        m.id ===
+                        metaSelecionada
+                );
+
+            if (meta) {
+
+                meta.guardado += valor;
+
+                salvarMetas();
+                renderizarMetas();
+
+                modalAdicionar.style.display =
+                    "none";
+            }
+        }
+    );
+
+    renderizarMetas();
+
+
+const perfil =
+    JSON.parse(
+        localStorage.getItem(
+            "perfilUsuario"
+        )
+    );
+
+if(perfil){
+
+    const sidebarNome =
+        document.querySelector(
+            ".sidebar-profile strong"
+        );
+
+    if(sidebarNome){
+        sidebarNome.textContent =
+            perfil.nome;
+    }
+
+    const avatar =
+        document.querySelector(
+            ".avatar"
+        );
+
+    if(avatar){
+
+        const iniciais =
+            perfil.nome
+            .split(" ")
+            .map(
+                palavra => palavra[0]
+            )
+            .join("")
+            .substring(0,2)
+            .toUpperCase();
+
+        avatar.textContent =
+            iniciais;
+    }
+}
+
+});
+</script>
+
   </body>
 </html>

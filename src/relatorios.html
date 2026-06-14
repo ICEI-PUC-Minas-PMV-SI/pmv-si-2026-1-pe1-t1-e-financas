@@ -3,91 +3,87 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>E-Finan&ccedil;as | Relat&oacute;rios</title>
+    <title>E-Finanças | Relatórios</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="page app-shell">
-      <aside class="sidebar" aria-label="Navega&ccedil;&atilde;o principal">
-        <a class="brand" href="dashboard.html" aria-label="E-Finan&ccedil;as">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand" href="dashboard.html" aria-label="E-Finanças">
           <span class="brand__mark" aria-hidden="true">EF</span>
           <span>
-            <span class="brand__name">E-Finan&ccedil;as</span>
-            <span class="brand__caption">Gest&atilde;o financeira</span>
+            <span class="brand__name">E-Finanças</span>
+            <span class="brand__caption">Gestão financeira</span>
           </span>
         </a>
 
         <nav class="nav">
           <a class="nav-link" href="dashboard.html"><span class="nav-link__icon" aria-hidden="true">D</span>Dashboard</a>
-          <a class="nav-link" href="transacoes.html"><span class="nav-link__icon" aria-hidden="true">T</span>Transa&ccedil;&otilde;es</a>
-          <a class="nav-link nav-link--active" href="relatorios.html" aria-current="page"><span class="nav-link__icon" aria-hidden="true">R</span>Relat&oacute;rios</a>
+          <a class="nav-link" href="transacoes.html"><span class="nav-link__icon" aria-hidden="true">T</span>Transações</a>
+          <a class="nav-link nav-link--active" href="relatorios.html" aria-current="page"><span class="nav-link__icon" aria-hidden="true">R</span>Relatórios</a>
           <a class="nav-link" href="metas.html"><span class="nav-link__icon" aria-hidden="true">M</span>Metas</a>
           <a class="nav-link" href="perfil.html"><span class="nav-link__icon" aria-hidden="true">P</span>Perfil</a>
         </nav>
 
-        <div class="sidebar-profile" aria-label="Usu&aacute;rio conectado">
-          <strong>Maria Clara</strong>
-          <span>Perfil organizado</span>
+        <div class="sidebar-profile" aria-label="Usuário conectado">
+          <strong id="nomeUsuario">Usuário</strong>
+          <span id="statusPerfil">Perfil organizado</span>
         </div>
       </aside>
 
       <main class="content">
         <header class="topbar">
           <div class="page-heading">
-            <h1>Relat&oacute;rios</h1>
-            <p>Analise receitas, despesas e evolu&ccedil;&atilde;o mensal.</p>
+            <h1>Relatórios</h1>
+            <p>Analise receitas, despesas e evolução mensal.</p>
           </div>
           <div class="topbar-actions">
-            <button class="btn btn--primary" type="button">Exportar PDF</button>
-            <span class="avatar" aria-label="Usu&aacute;rio Maria Clara">MC</span>
+            <span class="avatar" aria-label="Usuário Maria Clara"></span>
           </div>
         </header>
 
-        <section class="summary-grid" aria-label="Indicadores do relat&oacute;rio">
+        <section class="summary-grid" aria-label="Indicadores do relatório">
           <article class="summary-card">
             <p class="summary-card__label">Receitas</p>
-            <strong class="summary-card__value value-income">R$ 8.050,00</strong>
-            <span class="summary-card__hint">+12% no m&ecirc;s</span>
+            <strong id="receitasTotal"class="summary-card__value value-income">R$ 0,00</strong>
+            <span class="summary-card__hint">+12% no mês</span>
           </article>
           <article class="summary-card">
             <p class="summary-card__label">Despesas</p>
-            <strong class="summary-card__value value-expense">R$ 2.854,90</strong>
-            <span class="summary-card__hint">43% do or&ccedil;amento</span>
+            <strong id="despesasTotal"class="summary-card__value value-expense">R$ 0,00</strong>
+            <span class="summary-card__hint">43% do orçamento</span>
           </article>
           <article class="summary-card">
             <p class="summary-card__label">Economia</p>
-            <strong class="summary-card__value value-neutral">64%</strong>
+            <strong id="economiaPercentual"class="summary-card__value value-neutral">0%</strong>
             <span class="summary-card__hint">Meta acima do previsto</span>
           </article>
           <article class="summary-card">
             <p class="summary-card__label">Saldo projetado</p>
-            <strong class="summary-card__value">R$ 5.195,10</strong>
+            <strong id="saldoProjetado"class="summary-card__value">R$ 0,00</strong>
             <span class="summary-card__hint">Abril de 2026</span>
           </article>
         </section>
 
-        <section class="report-layout" aria-label="Gr&aacute;ficos financeiros">
+        <section class="report-layout" aria-label="Gráficos financeiros">
           <article class="card report-chart" aria-labelledby="evolucao-title">
             <div class="section-heading section-heading--plain">
               <div>
-                <h2 id="evolucao-title">Evolu&ccedil;&atilde;o mensal</h2>
-                <p>Receitas e despesas dos &uacute;ltimos meses.</p>
+                <h2 id="evolucao-title">Evolução mensal</h2>
+                <p>Receitas e despesas dos últimos meses.</p>
               </div>
             </div>
-            <div class="bar-chart" aria-label="Gr&aacute;fico de barras financeiro">
-              <span class="bar-chart__bar bar-chart__bar--primary" style="height: 50%"></span>
-              <span class="bar-chart__bar bar-chart__bar--income" style="height: 68%"></span>
-              <span class="bar-chart__bar bar-chart__bar--expense" style="height: 42%"></span>
-              <span class="bar-chart__bar bar-chart__bar--primary" style="height: 78%"></span>
-            </div>
+            <canvas id="graficoFluxo"></canvas>
+
           </article>
 
           <article class="card report-categories" aria-labelledby="categorias-title">
             <h2 id="categorias-title">Categorias</h2>
-            <div class="donut-chart" aria-hidden="true"></div>
-            <div class="category-list">
+            <canvas id="graficoCategorias"></canvas>
+            <div class="category-list" id="listaCategorias">
               <span><strong>42%</strong> Moradia</span>
-              <span><strong>21%</strong> Alimenta&ccedil;&atilde;o</span>
+              <span><strong>21%</strong> Alimentação</span>
               <span><strong>12%</strong> Transporte</span>
             </div>
           </article>
@@ -95,13 +91,328 @@
 
         <section class="card insights-card" aria-labelledby="insights-title">
           <h2 id="insights-title">Principais insights</h2>
-          <ul class="insights-list">
-            <li>Despesas de moradia concentram a maior parte do m&ecirc;s.</li>
-            <li>Receitas recorrentes cresceram em rela&ccedil;&atilde;o ao m&ecirc;s anterior.</li>
+          <ul class="insights-list" id="listaInsights">
+            <li>Despesas de moradia concentram a maior parte do mês.</li>
+            <li>Receitas recorrentes cresceram em relação ao mês anterior.</li>
             <li>Meta de economia segue acima do previsto para abril.</li>
           </ul>
         </section>
       </main>
     </div>
+
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+() => {
+
+    const transacoes =
+        JSON.parse(
+            localStorage.getItem(
+                "transacoes"
+            )
+        ) || [];
+
+    let receitas = 0;
+    let despesas = 0;
+
+    const categorias = {};
+
+    transacoes.forEach(t => {
+
+        const valor =
+            Number(t.valor);
+
+        if(t.tipo === "receita"){
+
+            receitas += valor;
+
+        }else{
+
+            despesas += valor;
+
+            categorias[t.categoria] =
+                (categorias[t.categoria] || 0)
+                + valor;
+        }
+    });
+
+    const saldo =
+        receitas - despesas;
+
+    const economia =
+        receitas > 0
+        ? Math.round(
+            (saldo / receitas) * 100
+        )
+        : 0;
+
+    document.getElementById(
+        "receitasTotal"
+    ).textContent =
+        receitas.toLocaleString(
+            "pt-BR",
+            {
+                style:"currency",
+                currency:"BRL"
+            }
+        );
+
+    document.getElementById(
+        "despesasTotal"
+    ).textContent =
+        despesas.toLocaleString(
+            "pt-BR",
+            {
+                style:"currency",
+                currency:"BRL"
+            }
+        );
+
+    document.getElementById(
+        "saldoProjetado"
+    ).textContent =
+        saldo.toLocaleString(
+            "pt-BR",
+            {
+                style:"currency",
+                currency:"BRL"
+            }
+        );
+
+    document.getElementById(
+        "economiaPercentual"
+    ).textContent =
+        economia + "%";
+
+    new Chart(
+        document.getElementById(
+            "graficoFluxo"
+        ),
+        {
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "Receitas",
+                    "Despesas"
+                ],
+
+                datasets: [{
+
+                    label:
+                        "Valores",
+
+                    data: [
+                        receitas,
+                        despesas
+                    ],
+
+                    backgroundColor: [
+                        "#22c55e",
+                        "#ef4444"
+                    ]
+                }]
+            },
+
+            options: {
+
+                responsive: true,
+
+                plugins: {
+
+                    legend: {
+                        display:false
+                    }
+                }
+            }
+        }
+    );
+
+    new Chart(
+        document.getElementById(
+            "graficoCategorias"
+        ),
+        {
+            type: "doughnut",
+
+            data: {
+
+                labels:
+                    Object.keys(
+                        categorias
+                    ),
+
+                datasets:[{
+
+                    data:
+                        Object.values(
+                            categorias
+                        )
+                }]
+            },
+
+            options:{
+                responsive:true
+            }
+        }
+    );
+
+    const listaCategorias =
+        document.getElementById(
+            "listaCategorias"
+        );
+
+    listaCategorias.innerHTML = "";
+
+    const totalCategorias =
+        Object.values(categorias)
+        .reduce(
+            (a,b) => a + b,
+            0
+        );
+
+    Object.entries(categorias)
+    .forEach(([nome, valor]) => {
+
+        const percentual =
+            totalCategorias > 0
+            ? Math.round(
+                (valor /
+                totalCategorias) * 100
+            )
+            : 0;
+
+        listaCategorias.innerHTML += `
+            <span>
+                <strong>
+                    ${percentual}%
+                </strong>
+                ${nome}
+            </span>
+        `;
+    });
+
+    const listaInsights =
+        document.getElementById(
+            "listaInsights"
+        );
+
+    listaInsights.innerHTML = "";
+
+    let maiorCategoria = "";
+    let maiorValor = 0;
+
+    Object.entries(categorias)
+    .forEach(([nome, valor]) => {
+
+        if(valor > maiorValor){
+
+            maiorValor = valor;
+            maiorCategoria = nome;
+        }
+    });
+
+    if(maiorCategoria){
+
+        listaInsights.innerHTML += `
+            <li>
+                A categoria
+                <strong>
+                    ${maiorCategoria}
+                </strong>
+                representa o maior gasto
+                do período.
+            </li>
+        `;
+    }
+
+    if(saldo > 0){
+
+        listaInsights.innerHTML += `
+            <li>
+                Você economizou
+                <strong>
+                    ${
+                        saldo.toLocaleString(
+                            "pt-BR",
+                            {
+                                style:"currency",
+                                currency:"BRL"
+                            }
+                        )
+                    }
+                </strong>
+                neste período.
+            </li>
+        `;
+
+    }else{
+
+        listaInsights.innerHTML += `
+            <li>
+                As despesas superaram
+                as receitas neste período.
+            </li>
+        `;
+    }
+
+    listaInsights.innerHTML += `
+        <li>
+            Sua taxa de economia foi de
+            <strong>
+                ${economia}%
+            </strong>.
+        </li>
+    `;
+
+    const perfil =
+        JSON.parse(
+            localStorage.getItem(
+                "perfilUsuario"
+            )
+        );
+
+    if(perfil){
+
+        const sidebarNome =
+            document.querySelector(
+                ".sidebar-profile strong"
+            );
+
+        if(sidebarNome){
+            sidebarNome.textContent =
+                perfil.nome;
+        }
+
+        const avatar =
+            document.querySelector(
+                ".avatar"
+            );
+
+        if(avatar){
+
+            const iniciais =
+                perfil.nome
+                .split(" ")
+                .map(
+                    palavra => palavra[0]
+                )
+                .join("")
+                .substring(0,2)
+                .toUpperCase();
+
+            avatar.textContent =
+                iniciais;
+        }
+    }
+
+
+
+});
+
+  </script>
+
   </body>
 </html>
