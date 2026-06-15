@@ -1,4 +1,4 @@
-import { formatCurrency } from "../core/currency.js";
+import { formatCurrency, parseCurrency } from "../core/currency.js";
 import { renderProfileUi } from "../core/profile-ui.js";
 import { readJson } from "../core/storage.js";
 
@@ -27,7 +27,7 @@ document.addEventListener(
     transacoes.forEach(t => {
 
         const valor =
-            Number(t.valor);
+            parseCurrency(t.valor);
 
         if(t.tipo === "receita"){
 

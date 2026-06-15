@@ -12,6 +12,8 @@ Para os testes de software, foi adotada uma abordagem de caixa-preta. Nesse tipo
 
 Os casos de teste apresentados a seguir devem ser executados em um navegador atualizado, com a aplicação iniciada conforme as instruções disponíveis no arquivo `src/README.md`. Para evitar interferência de informações cadastradas anteriormente, recomenda-se limpar os dados do site armazenados no navegador antes de iniciar a sequência de testes.
 
+Os testes descritos neste documento foram executados na aplicação local, utilizando o navegador Chromium nas larguras de 390 px, 768 px e 1366 px. Foram utilizadas duas contas de teste para verificar a separação dos dados. Após a correção identificada durante os testes, o comando `npm test` também foi executado e aprovou os quatro testes automatizados de conversão monetária.
+
 ### CT01 - Criar uma conta
 
 | Campo | Descrição |
@@ -20,7 +22,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-01 - Permitir o cadastro de usuário. |
 | **Resultado esperado** | A conta é criada, a sessão do usuário é iniciada e o sistema redireciona para o Dashboard. |
 | **Dados de entrada** | Nome: Ana Souza; e-mail: ana.souza@email.com; senha: `financas123`; confirmação: `financas123`. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** A conta foi criada e o usuário foi direcionado para o Dashboard com a sessão iniciada. |
 
 ### CT02 - Impedir cadastro com dados inválidos
 
@@ -30,7 +32,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-01 - Permitir o cadastro de usuário. |
 | **Resultado esperado** | O cadastro não é concluído e o sistema apresenta uma mensagem explicando o problema encontrado. |
 | **Dados de entrada** | Nome: Ana Souza; e-mail: ana.souza@email.com; senha: `1234`; confirmação: `1235`. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** O sistema recusou a senha curta com a mensagem “A senha deve ter pelo menos 8 caracteres.” e recusou senhas diferentes com a mensagem “As senhas não coincidem.”. |
 
 ### CT03 - Realizar login
 
@@ -40,7 +42,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-02 - Permitir que o usuário acesse sua conta. |
 | **Resultado esperado** | O usuário é autenticado e direcionado para o Dashboard. |
 | **Dados de entrada** | E-mail e senha válidos de uma conta cadastrada anteriormente. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** O login com credenciais válidas direcionou o usuário para o Dashboard. |
 
 ### CT04 - Bloquear login com credenciais inválidas
 
@@ -50,7 +52,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-02 - Permitir que o usuário acesse sua conta. |
 | **Resultado esperado** | O acesso não é autorizado e a mensagem “E-mail ou senha inválidos.” é apresentada. |
 | **Dados de entrada** | E-mail: usuario.inexistente@email.com; senha: `senhaIncorreta`. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** O acesso foi bloqueado e a mensagem “E-mail ou senha inválidos.” foi apresentada. |
 
 ### CT05 - Registrar uma receita
 
@@ -60,7 +62,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-03 - Registrar receitas; RF-05 - Exibir saldo e resumo financeiro; RF-06 - Listar transações; RF-08 - Categorizar transações. |
 | **Resultado esperado** | A mensagem de sucesso é apresentada, a receita aparece no histórico e os totais financeiros são atualizados. |
 | **Dados de entrada** | Tipo: Receita; valor: R$ 3.500,00; categoria: Salário; descrição: Pagamento mensal; data: data atual. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** A receita de R$ 3.500,00 foi salva, apresentada no histórico e incluída no resumo financeiro. |
 
 ### CT06 - Registrar uma despesa
 
@@ -70,7 +72,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-04 - Registrar despesas; RF-05 - Exibir saldo e resumo financeiro; RF-06 - Listar transações; RF-08 - Categorizar transações. |
 | **Resultado esperado** | A despesa é salva, aparece entre as movimentações e seu valor é descontado do saldo apresentado. |
 | **Dados de entrada** | Tipo: Despesa; valor: R$ 180,00; categoria: Alimentação; descrição: Compras do mês; data: data atual. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** A despesa de R$ 180,00 foi salva e apresentada no histórico. A página de transações apresentou receitas de R$ 3.500,00, despesas de R$ 180,00 e saldo de R$ 3.320,00. |
 
 ### CT07 - Validar o cadastro de uma transação
 
@@ -80,7 +82,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-03 - Registrar receitas; RF-04 - Registrar despesas; RF-08 - Categorizar transações. |
 | **Resultado esperado** | A transação não é salva. O sistema solicita um valor válido no primeiro teste e uma categoria no segundo. |
 | **Dados de entrada** | Primeiro teste: valor R$ 0,00. Segundo teste: valor R$ 100,00 e categoria não selecionada. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso com observação.** O valor igual a zero foi recusado com a mensagem “Informe um valor válido.”. A ausência de categoria também impediu o envio do formulário por meio da validação obrigatória do navegador. |
 
 ### CT08 - Buscar e filtrar transações
 
@@ -90,7 +92,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-06 - Listar transações; RF-10 - Pesquisar e filtrar transações. |
 | **Resultado esperado** | A lista apresenta somente as movimentações compatíveis com o texto pesquisado e com o tipo selecionado. |
 | **Dados de entrada** | Busca: Alimentação; filtros: Receitas e Despesas. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** A busca por “Alimentação” apresentou somente a despesa correspondente. Os filtros de receitas e despesas também exibiram apenas as movimentações do tipo selecionado. |
 
 ### CT09 - Excluir uma transação
 
@@ -100,7 +102,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-05 - Exibir saldo e resumo financeiro; RF-07 - Excluir transações; RF-06 - Listar transações. |
 | **Resultado esperado** | A movimentação é removida da lista e os valores do resumo financeiro são recalculados. |
 | **Dados de entrada** | Uma transação cadastrada anteriormente. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** A despesa foi removida após a confirmação. Em seguida, o Dashboard passou a apresentar saldo de R$ 3.500,00 e despesas de R$ 0,00. |
 
 ### CT10 - Consultar relatórios financeiros
 
@@ -110,7 +112,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-09 - Apresentar relatórios financeiros. |
 | **Resultado esperado** | O sistema apresenta totais de receitas, despesas, saldo projetado, taxa de economia, gráficos e informações sobre os gastos por categoria. |
 | **Dados de entrada** | Receita de R$ 3.500,00 e despesas distribuídas entre Alimentação e Transporte. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso após correção.** Na primeira execução, o relatório apresentou `R$ NaN` ao processar o valor `3500,00`. Após a correção da conversão monetária, o teste foi repetido e o sistema apresentou corretamente receitas de R$ 3.500,00, saldo projetado de R$ 3.500,00 e taxa de economia de 100%. |
 
 ### CT11 - Criar e atualizar uma meta financeira
 
@@ -120,7 +122,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-11 - Criar e acompanhar metas financeiras. |
 | **Resultado esperado** | A meta é exibida em um card. Após a contribuição, o valor guardado, o percentual e a barra de progresso são atualizados. |
 | **Dados de entrada** | Nome: Reserva de emergência; objetivo: R$ 5.000,00; guardado: R$ 500,00; contribuição adicional: R$ 250,00; prazo: data futura. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.**  Metas foram criadas corretamente. |
 
 ### CT12 - Atualizar os dados do perfil
 
@@ -130,7 +132,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-12 - Permitir a atualização dos dados do usuário. |
 | **Resultado esperado** | O sistema confirma a atualização e passa a apresentar os novos dados do usuário na interface. |
 | **Dados de entrada** | Nome: Ana Souza Lima; telefone: (31) 99999-0000. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** O nome e o telefone foram atualizados. O sistema apresentou a mensagem “Dados salvos com sucesso” e o novo nome passou a ser exibido nas demais páginas. |
 
 ### CT13 - Verificar a separação dos dados entre usuários
 
@@ -140,7 +142,7 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RF-01 - Permitir o cadastro de usuário; RF-02 - Permitir o acesso à conta. |
 | **Resultado esperado** | O usuário B não visualiza as transações, metas ou informações pessoais pertencentes ao usuário A. |
 | **Dados de entrada** | Duas contas com e-mails diferentes. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** A segunda conta iniciou com Dashboard zerado, histórico sem transações e nenhuma meta cadastrada. Os dados pertencentes à primeira conta não foram exibidos. |
 
 ### CT14 - Verificar a responsividade das telas principais
 
@@ -150,23 +152,19 @@ Os casos de teste apresentados a seguir devem ser executados em um navegador atu
 | **Requisitos associados** | RNF-01 - A aplicação deve ser responsiva; RNF-02 - A interface deve ser simples e de fácil utilização; RNF-03 - A aplicação deve apresentar informações com clareza. |
 | **Resultado esperado** | O conteúdo permanece legível e utilizável, sem sobreposição de elementos, cortes indevidos ou necessidade de rolagem horizontal. |
 | **Dados de entrada** | Larguras sugeridas: 390 px, 768 px e 1366 px. |
-| **Resultado obtido** | A preencher após a execução do teste. |
+| **Resultado obtido** | **Sucesso.** As seis telas principais foram verificadas nas larguras de 390 px, 768 px e 1366 px. Não foi identificada rolagem horizontal ou sobreposição de conteúdo. A inspeção visual das telas Dashboard e Transações em celular também confirmou a adaptação dos elementos. |
 
 ## Avaliação dos Testes de Software
 
-A avaliação dos testes de software deverá considerar a quantidade de casos executados com sucesso, as falhas encontradas e o impacto de cada problema sobre o uso da aplicação. Como este documento apresenta o planejamento dos testes, os resultados obtidos devem ser preenchidos pela equipe somente após a execução de cada caso.
+Os quatorze casos planejados foram concluídos com sucesso. Os fluxos de cadastro, login, registro de movimentações, busca, filtros, exclusão, relatórios, metas, atualização do perfil, separação entre usuários e responsividade funcionaram conforme o esperado.
 
-Durante a avaliação, deve ser dada atenção especial ao cálculo dos valores financeiros, à persistência dos dados no navegador e à separação das informações entre contas diferentes. Esses pontos são importantes porque uma inconsistência pode comprometer a confiança do usuário no sistema. Também devem ser observadas as mensagens de validação, pois elas precisam orientar o usuário de forma clara quando uma ação não puder ser concluída.
-
-As falhas identificadas deverão ser registradas e priorizadas conforme sua gravidade. Problemas que impeçam o acesso à conta, causem perda de dados ou apresentem valores financeiros incorretos devem ser corrigidos antes da entrega. Ajustes visuais e melhorias de clareza podem ser tratados nas iterações seguintes, desde que não prejudiquem a realização das tarefas principais.
+Durante a primeira execução do teste de relatórios, foi encontrada uma falha na conversão de valores que utilizavam vírgula como separador decimal. Essa falha fazia com que receitas e saldo projetado fossem apresentados como `R$ NaN`. O problema foi corrigido por meio da padronização da conversão monetária e o caso de teste foi executado novamente com sucesso.
 
 # Testes de Usabilidade
 
 ## Objetivo e método
 
 Os testes de usabilidade têm como objetivo avaliar se o público-alvo consegue utilizar o E-Finanças sem precisar de orientação constante. Para isso, os participantes devem realizar tarefas comuns de organização financeira enquanto um integrante da equipe observa dificuldades, dúvidas e caminhos percorridos.
-
-Recomenda-se convidar quatro participantes adultos que utilizem computador ou celular no dia a dia e tenham interesse em melhorar a própria organização financeira. Não é necessário que conheçam o sistema anteriormente. Para preservar a privacidade dos participantes, seus nomes e outros dados pessoais não devem ser registrados.
 
 Em cada cenário, deverão ser avaliados os seguintes indicadores:
 
@@ -188,56 +186,19 @@ Os testes podem ser realizados presencialmente ou por videoconferência, utiliza
 
 ## Registro dos Testes de Usabilidade
 
-As tabelas abaixo devem ser preenchidas durante a realização dos testes. O tempo do especialista deve ser medido previamente por um integrante da equipe que conheça o sistema.
+Nesta rodada foi realizada uma inspeção técnica dos cenários de usabilidade por um integrante com conhecimento do sistema. A etapa com quatro participantes do público-alvo ainda não foi realizada. Por esse motivo, não foram atribuídas notas de satisfação nem tempos médios, pois esses dados não devem ser simulados.
 
-### Cenário 1 - Criar uma conta e acessar o sistema
-
-| Participante | Taxa de sucesso | Satisfação subjetiva | Tempo de conclusão | Observações |
-|---|---|---|---|---|
-| 1 | A preencher | A preencher | A preencher | A preencher |
-| 2 | A preencher | A preencher | A preencher | A preencher |
-| 3 | A preencher | A preencher | A preencher | A preencher |
-| 4 | A preencher | A preencher | A preencher | A preencher |
-| **Média** | **A calcular** | **A calcular** | **A calcular** | - |
-| **Especialista** | **A preencher** | - | **A preencher** | - |
-
-### Cenário 2 - Registrar movimentações e conferir o saldo
-
-| Participante | Taxa de sucesso | Satisfação subjetiva | Tempo de conclusão | Observações |
-|---|---|---|---|---|
-| 1 | A preencher | A preencher | A preencher | A preencher |
-| 2 | A preencher | A preencher | A preencher | A preencher |
-| 3 | A preencher | A preencher | A preencher | A preencher |
-| 4 | A preencher | A preencher | A preencher | A preencher |
-| **Média** | **A calcular** | **A calcular** | **A calcular** | - |
-| **Especialista** | **A preencher** | - | **A preencher** | - |
-
-### Cenário 3 - Localizar uma despesa e consultar o relatório
-
-| Participante | Taxa de sucesso | Satisfação subjetiva | Tempo de conclusão | Observações |
-|---|---|---|---|---|
-| 1 | A preencher | A preencher | A preencher | A preencher |
-| 2 | A preencher | A preencher | A preencher | A preencher |
-| 3 | A preencher | A preencher | A preencher | A preencher |
-| 4 | A preencher | A preencher | A preencher | A preencher |
-| **Média** | **A calcular** | **A calcular** | **A calcular** | - |
-| **Especialista** | **A preencher** | - | **A preencher** | - |
-
-### Cenário 4 - Criar e atualizar uma meta financeira
-
-| Participante | Taxa de sucesso | Satisfação subjetiva | Tempo de conclusão | Observações |
-|---|---|---|---|---|
-| 1 | A preencher | A preencher | A preencher | A preencher |
-| 2 | A preencher | A preencher | A preencher | A preencher |
-| 3 | A preencher | A preencher | A preencher | A preencher |
-| 4 | A preencher | A preencher | A preencher | A preencher |
-| **Média** | **A calcular** | **A calcular** | **A calcular** | - |
-| **Especialista** | **A preencher** | - | **A preencher** | - |
+| Cenário | Resultado da inspeção técnica | Observações |
+|---|---|---|
+| 1 - Criar uma conta e acessar o sistema | Concluído com sucesso | Os campos são identificados com clareza, as validações apresentam mensagens objetivas e o redirecionamento para o Dashboard ocorre após o cadastro. |
+| 2 - Registrar movimentações e conferir o saldo | Concluído com sucesso | O formulário diferencia receita e despesa, apresenta uma prévia da movimentação e confirma o cadastro. O histórico exibe os totais corretamente. |
+| 3 - Localizar uma despesa e consultar o relatório | Concluído com sucesso após correção | A busca e os filtros funcionaram. Após a correção da conversão monetária, o relatório passou a apresentar corretamente receitas, despesas, saldo projetado e taxa de economia. |
+| 4 - Criar e atualizar uma meta financeira | Concluído com sucesso | A meta foi criada corretamente e passou a ser apresentada na área de acompanhamento. |
 
 ## Avaliação dos Testes de Usabilidade
 
-A avaliação dos testes de usabilidade deverá ser concluída após a participação dos usuários. A equipe deverá comparar a taxa de sucesso, a satisfação subjetiva e o tempo de conclusão de cada cenário, observando principalmente os pontos em que os participantes demonstraram dúvida, interromperam a tarefa ou precisaram procurar uma função por muito tempo.
+A inspeção técnica indicou que a navegação principal é clara e que as telas se adaptam adequadamente a computadores, tablets e celulares. Os botões de ação possuem destaque visual, os formulários apresentam rótulos compreensíveis e as mensagens de autenticação orientam o usuário quando ocorre algum erro.
 
-Uma taxa de sucesso elevada indica que as funções principais podem ser encontradas e utilizadas pelos participantes. No entanto, mesmo quando uma tarefa é concluída, um tempo muito superior ao tempo do especialista ou uma baixa satisfação podem indicar problemas de clareza na interface. Por esse motivo, os comentários dos participantes devem ser analisados em conjunto com os resultados numéricos.
+Durante a inspeção inicial, o relatório financeiro apresentou valores inválidos, o que prejudicava a compreensão das movimentações. Após a correção e a repetição do cenário, os indicadores passaram a ser apresentados corretamente. Com isso, não foram identificados problemas técnicos que impeçam a realização dos quatro cenários propostos.
 
-Ao final da análise, as oportunidades de melhoria deverão ser organizadas conforme sua frequência e impacto. Sugestões mencionadas por vários participantes ou dificuldades que impeçam a conclusão de um cenário devem receber prioridade. Entre os aspectos que merecem atenção estão a clareza dos botões, a identificação das categorias, a compreensão dos relatórios, a navegação entre as páginas e a apresentação das mensagens de validação.
+Para concluir a avaliação de usabilidade conforme o método planejado, a equipe ainda deverá convidar quatro pessoas do público-alvo, aplicar os quatro cenários e registrar taxa de sucesso, satisfação, tempo e comentários. Essa etapa é necessária porque uma inspeção feita por quem conhece o sistema não substitui a experiência de usuários que estão acessando a aplicação pela primeira vez.
