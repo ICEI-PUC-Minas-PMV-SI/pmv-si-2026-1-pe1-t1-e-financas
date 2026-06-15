@@ -114,17 +114,24 @@ button {
   justify-content: center;
 }
 
-.brand__mark {
-  display: inline-grid;
-  width: 42px;
-  height: 42px;
-  flex: 0 0 42px;
-  place-items: center;
-  border-radius: 8px;
-  background: var(--color-primary);
-  color: #ffffff;
-  font-size: 17px;
-  letter-spacing: 0;
+.brand--preview {
+  width: fit-content;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.brand__logo {
+  display: block;
+  width: min(220px, 100%);
+  height: auto;
+}
+
+.brand__icon {
+  display: block;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
 }
 
 .brand__name {
@@ -138,11 +145,6 @@ button {
   color: var(--color-text-secondary);
   font-size: 12px;
   font-weight: 500;
-}
-
-.login-preview .brand__mark {
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .login-preview .brand__name,

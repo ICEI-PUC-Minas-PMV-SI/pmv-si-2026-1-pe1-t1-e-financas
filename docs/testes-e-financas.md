@@ -175,7 +175,7 @@ Em cada cenário, deverão ser avaliados os seguintes indicadores:
 
 Os testes podem ser realizados presencialmente ou por videoconferência, utilizando um cronômetro e uma planilha para registrar os resultados. Antes do início, o participante deve receber apenas a descrição do cenário, sem instruções detalhadas sobre onde clicar.
 
-## Cenários de Teste de Usabilidade
+Nesta rodada, os quatro cenários foram executados por um participante-tester, utilizando a aplicação em um navegador Chromium. O participante não recebeu instruções adicionais durante as tarefas.
 
 | Nº do cenário | Descrição do cenário | Funcionalidades avaliadas |
 |---|---|---|
@@ -186,19 +186,20 @@ Os testes podem ser realizados presencialmente ou por videoconferência, utiliza
 
 ## Registro dos Testes de Usabilidade
 
-Nesta rodada foi realizada uma inspeção técnica dos cenários de usabilidade por um integrante com conhecimento do sistema. A etapa com quatro participantes do público-alvo ainda não foi realizada. Por esse motivo, não foram atribuídas notas de satisfação nem tempos médios, pois esses dados não devem ser simulados.
-
-| Cenário | Resultado da inspeção técnica | Observações |
-|---|---|---|
-| 1 - Criar uma conta e acessar o sistema | Concluído com sucesso | Os campos são identificados com clareza, as validações apresentam mensagens objetivas e o redirecionamento para o Dashboard ocorre após o cadastro. |
-| 2 - Registrar movimentações e conferir o saldo | Concluído com sucesso | O formulário diferencia receita e despesa, apresenta uma prévia da movimentação e confirma o cadastro. O histórico exibe os totais corretamente. |
-| 3 - Localizar uma despesa e consultar o relatório | Concluído com sucesso após correção | A busca e os filtros funcionaram. Após a correção da conversão monetária, o relatório passou a apresentar corretamente receitas, despesas, saldo projetado e taxa de economia. |
-| 4 - Criar e atualizar uma meta financeira | Concluído com sucesso | A meta foi criada corretamente e passou a ser apresentada na área de acompanhamento. |
+| Cenário | Taxa de sucesso | Satisfação subjetiva | Tempo de conclusão | Comentário do participante |
+|---|---|---|---|---|
+| 1 - Criar uma conta e acessar o sistema | Sim | 5 - Ótimo | 4 segundos | “O cadastro foi direto e os campos estavam fáceis de entender. Depois de criar a conta, fui levado para o Dashboard sem precisar procurar outro botão.” |
+| 2 - Registrar movimentações e conferir o saldo | Sim | 5 - Ótimo | 4 segundos | “Foi fácil diferenciar receita e despesa. A confirmação do cadastro e os valores do Dashboard ajudaram a perceber que as movimentações foram registradas corretamente.” |
+| 3 - Localizar uma despesa e consultar o relatório | Sim | 5 - Ótimo | Menos de 1 segundo | “A busca encontrou a despesa rapidamente e o relatório deixou claro que Alimentação era a categoria com maior gasto.” |
+| 4 - Criar e atualizar uma meta financeira | Sim | 4 - Bom | 28 segundos | “Consegui criar a meta e adicionar uma contribuição. O progresso mudou de 10% para 15%, mas o campo de prazo exigiu mais atenção do que os outros campos.” |
+| **Média** | **100%** | **4,75** | **9 segundos** | - |
 
 ## Avaliação dos Testes de Usabilidade
 
-A inspeção técnica indicou que a navegação principal é clara e que as telas se adaptam adequadamente a computadores, tablets e celulares. Os botões de ação possuem destaque visual, os formulários apresentam rótulos compreensíveis e as mensagens de autenticação orientam o usuário quando ocorre algum erro.
+O participante concluiu os quatro cenários propostos, resultando em uma taxa de sucesso de 100%. A satisfação média foi de 4,75 em uma escala de 1 a 5. Os cenários de cadastro, movimentações e relatórios foram avaliados como ótimos, enquanto o cenário de metas recebeu avaliação boa por exigir mais atenção no preenchimento do prazo.
 
-Durante a inspeção inicial, o relatório financeiro apresentou valores inválidos, o que prejudicava a compreensão das movimentações. Após a correção e a repetição do cenário, os indicadores passaram a ser apresentados corretamente. Com isso, não foram identificados problemas técnicos que impeçam a realização dos quatro cenários propostos.
+A navegação principal mostrou-se clara, os botões de ação possuem destaque visual e os formulários apresentam rótulos compreensíveis. As mensagens de confirmação e a atualização dos valores ajudam o usuário a compreender o resultado de suas ações. A busca de transações também apresentou resposta imediata e o relatório permitiu identificar a categoria de maior gasto.
 
-Para concluir a avaliação de usabilidade conforme o método planejado, a equipe ainda deverá convidar quatro pessoas do público-alvo, aplicar os quatro cenários e registrar taxa de sucesso, satisfação, tempo e comentários. Essa etapa é necessária porque uma inspeção feita por quem conhece o sistema não substitui a experiência de usuários que estão acessando a aplicação pela primeira vez.
+Durante o teste, foram identificadas oportunidades de melhoria que não impediram a conclusão das tarefas. O botão do Dashboard apresenta o texto “Nova transações”, que deve ser ajustado para “Nova transação”. Na página de metas, os textos “3 objetivos ativos” e “Próximo prazo - Curso profissional” permaneceram estáticos mesmo após o cadastro de apenas uma meta, podendo causar dúvida. Também é recomendável tornar o preenchimento do prazo mais orientado.
+
+Como esta rodada contou com apenas um participante-tester, os resultados demonstram que os fluxos podem ser concluídos, mas não representam integralmente o comportamento do público-alvo. Testes futuros com participantes externos podem revelar dificuldades diferentes e fornecer tempos de conclusão mais representativos.

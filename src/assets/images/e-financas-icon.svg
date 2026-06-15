@@ -1,0 +1,21 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">E-financas</title>
+  <desc id="desc">Icone do aplicativo E-financas, com uma carteira digital e uma seta de crescimento.</desc>
+
+  <defs>
+    <linearGradient id="brand-gradient" x1="20" y1="18" x2="162" y2="164" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18C58F"/>
+      <stop offset="1" stop-color="#087F75"/>
+    </linearGradient>
+    <linearGradient id="accent-gradient" x1="76" y1="104" x2="132" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C8FF62"/>
+      <stop offset="1" stop-color="#F2FFBE"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="10" y="10" width="160" height="160" rx="40" fill="url(#brand-gradient)"/>
+  <path d="M51 67C51 58.7157 57.7157 52 66 52H105C110.523 52 115 56.4772 115 62V65H69C63.4772 65 59 69.4772 59 75V110C59 119.941 67.0589 128 77 128H121C126.523 128 131 123.523 131 118V79C131 73.4772 126.523 69 121 69H68C63.0294 69 59 73.0294 59 78V103" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="112" cy="99" r="7" fill="white"/>
+  <path d="M76 105L91 90L102 99L126 73" stroke="url(#accent-gradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M110 73H126V89" stroke="url(#accent-gradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
