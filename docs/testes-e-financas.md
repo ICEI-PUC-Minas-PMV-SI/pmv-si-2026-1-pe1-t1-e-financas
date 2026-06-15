@@ -185,6 +185,75 @@ Nesta rodada, os quatro cenários foram executados por um participante-tester, u
 | 4 | Você pretende criar uma reserva de emergência. Cadastre uma meta de R$ 5.000,00, informe um valor inicial e depois adicione uma nova contribuição. | Cadastro de metas, atualização de valores e acompanhamento do progresso. |
 
 ## Registro dos Testes de Usabilidade
+| *Caso de Teste*                   | *CT01 - Criar uma conta*                                 |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-01 - Permitir o cadastro de usuário                   |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQAr0Cc4EAcoRZPszxYEIzQGAd_l_IQGELl-q-n6rGTp9Kg?e=wK46S0|
+
+| *Caso de Teste*                   | *CT02 - Impedir cadastro com dados inválidos*            |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-01 - Permitir o cadastro de usuário                   |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQBfAtJbNT1ST7RONqD851LlAQzSqod0qTfONuStD3IOTK0?e=ofPe89 |
+
+| *Caso de Teste*                   | *CT03 - Realizar login*                                  |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-02 - Permitir acesso à conta                          |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQAd4M2IKlMoSY0aFb3IKS6RAdbyXmMRg9sqn5sEDUHJutA?e=kAwKig |
+
+| *Caso de Teste*                   | *CT04 - Bloquear login com credenciais inválidas*        |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-02 - Permitir acesso à conta                          |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQDmgqvFBksIR4YwAlPL8C9_AWU9WUt7U_BqiVT8sv5LRrQ?e=NO42mI |
+
+| *Caso de Teste*                   | *CT05 - Registrar uma receita*                           |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-03 / RF-05 / RF-06 / RF-08                            |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQBkND6kTkvBTpqf0A0XonFkAXlt0zl8xFT2L6f_E4uhwc4?e=HVERDf|
+
+| *Caso de Teste*                   | *CT06 - Registrar uma despesa*                           |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-04 / RF-05 / RF-06 / RF-08                            |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQDagwSumZLnR5LKxPx9PQ1xAVQTZalwsCRvQGc3qwClKV8?e=7A6vW0 |
+
+| *Caso de Teste*                   | *CT07 - Validar cadastro de transação*                   |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-03 / RF-04 / RF-08                                    |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQAoRuyawXwcTobvQKUFIU8QAQ9kQf4-3fP2C7YpXLd84QQ?e=m1VhNx |
+
+| *Caso de Teste*                   | *CT08 - Buscar e filtrar transações*                     |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-06 / RF-10                                            |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQAZ40sjYq5GSqc1EnhO2CxqAT2dGmUuNxCGyD8-1oKf2MI?e=et3TKk|
+
+| *Caso de Teste*                   | *CT09 - Excluir uma transação*                           |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-05 / RF-06 / RF-07                                    |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQB1e9RsXOPrS75Zq_GnSVITAYSlhw2LSBy6k_FahNxeAt8?e=GMjcYG |
+
+| *Caso de Teste*                   | *CT10 - Consultar relatórios financeiros*                |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-09 - Relatórios financeiros                           |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQB_28kaRMLwSpN6htEs2UsCAb4SKyo2UKEuTuuKkD16kPc?e=2FfgUd |
+
+| *Caso de Teste*                   | *CT11 - Criar e atualizar meta financeira*               |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-11 - Metas financeiras                                |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQBIow6Dd0ABQYEXzmhSVWnMAX57OiZdC0F9xnc4NAqpIhU?e=KIKTxJ |
+
+| *Caso de Teste*                   | *CT12 - Atualizar dados do perfil*                       |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-12 - Atualização de dados do usuário                  |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQDicew4seCKQah9Jx3NJ88TATZViVtBq0aqZMwnQZjeFHs?e=XCyjzU |
+
+| *Caso de Teste*                   | *CT13 - Separação de dados entre usuários*               |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RF-01 / RF-02                                            |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQChHRUUDqZaQ4KaT6mhviWdAfBP-HY5RZbRWcQuecTWF4I?e=uSw7fn |
+
+| *Caso de Teste*                   | *CT14 - Responsividade das telas*                        |
+| --------------------------------- | -------------------------------------------------------- |
+| Requisito Associado               | RNF-01 / RNF-02 / RNF-03                                 |
+| Link do vídeo do teste realizado: | https://1drv.ms/v/c/d106bf808e89740d/IQBrY9PtXib3QZKa0oDrVlPoAVKf3Tg_wsZf2agG3N4rxKM?e=ThkQIb |
 
 | Cenário | Taxa de sucesso | Satisfação subjetiva | Tempo de conclusão | Comentário do participante |
 |---|---|---|---|---|
