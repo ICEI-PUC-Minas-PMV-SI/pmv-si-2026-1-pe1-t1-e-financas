@@ -106,8 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
         previewCategoria.textContent = categoriaSelect.value || "Não definida";
 
         if (dataInput.value) {
-            const data = new Date(dataInput.value);
-            previewData.textContent = data.toLocaleDateString("pt-BR");
+            const [ano, mes, dia] = dataInput.value.split("-");
+                previewData.textContent = `${dia}/${mes}/${ano}`;
         }
     }
 
