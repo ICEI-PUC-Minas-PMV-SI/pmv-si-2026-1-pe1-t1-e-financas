@@ -76,11 +76,19 @@
             </div>
             <div class="preference-item">
               <span>Alertas</span>
-              <strong>Resumo semanal ativo</strong>
+              <div class="switch-control">
+                <label class="switch" for="alertasResumo">
+                  <input id="alertasResumo" type="checkbox" role="switch" aria-checked="true">
+                  <span class="switch__track">
+                    <span class="switch__thumb"></span>
+                  </span>
+                </label>
+                <span id="alertasStatus" class="preference-status">Resumo semanal ativo</span>
+              </div>
             </div>
             <div class="preference-item">
               <span>Meta principal</span>
-              <strong>Reserva de emergência</strong>
+              <div id="metaPrincipalNome" class="meta-principal-list">Reserva de emergência</div>
             </div>
           </aside>
         </section>

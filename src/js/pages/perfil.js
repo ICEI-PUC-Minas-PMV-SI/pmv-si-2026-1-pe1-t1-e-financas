@@ -33,6 +33,58 @@ document.addEventListener("DOMContentLoaded", () => {
             "mensagemPerfil"
         );
 
+    const alertasToggle =
+        document.getElementById(
+            "alertasResumo"
+        );
+
+    const alertasStatus =
+        document.getElementById(
+            "alertasStatus"
+        );
+
+    const metaPrincipalNome =
+        document.getElementById(
+            "metaPrincipalNome"
+        );
+
+    const updateAlertasStatus = (ativo) => {
+        alertasStatus.textContent = ativo
+            ? "Resumo semanal ativo"
+            : "Resumo semanal inativo";
+        alertasToggle.setAttribute(
+            "aria-checked",
+            ativo ? "true" : "false"
+        );
+    };
+
+    const metas =
+        readJson(userStorage, "metas", []) || [];
+
+    if (metaPrincipalNome) {
+        metaPrincipalNome.textContent = "";
+
+        if (metas.length > 0) {
+            metas.forEach(meta => {
+                const line = document.createElement("div");
+                const title = document.createElement("strong");
+                const progress = Math.round(
+                    (meta.objetivo > 0 ? meta.guardado / meta.objetivo : 0) *
+                    100
+                );
+
+                title.textContent = meta.nome;
+                line.appendChild(title);
+                line.appendChild(
+                    document.createTextNode(` — ${progress}%`)
+                );
+                metaPrincipalNome.appendChild(line);
+            });
+        } else {
+            metaPrincipalNome.textContent = "Reserva de emergência";
+        }
+    }
+
     const dadosSalvos =
         readJson(userStorage, "perfilUsuario");
 
@@ -47,8 +99,26 @@ document.addEventListener("DOMContentLoaded", () => {
         telefone.value =
             dadosSalvos.telefone || "";
 
+        const alertasAtivas =
+            dadosSalvos.alertasAtivas ?? true;
+
+        alertasToggle.checked = alertasAtivas;
+        updateAlertasStatus(alertasAtivas);
+
         renderProfileUi(dadosSalvos);
+    } else {
+        alertasToggle.checked = true;
+        updateAlertasStatus(true);
     }
+
+    alertasToggle.addEventListener(
+        "change",
+        () => {
+            updateAlertasStatus(
+                alertasToggle.checked
+            );
+        }
+    );
 
     btnSalvar.addEventListener(
         "click",
@@ -63,7 +133,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     email.value,
 
                 telefone:
-                    telefone.value
+                    telefone.value,
+
+                alertasAtivas:
+                    alertasToggle.checked
             };
 
             try {
