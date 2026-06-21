@@ -1,4 +1,4 @@
-import { formatCurrency } from "../core/currency.js";
+import { formatCurrency, formatCurrencyByCode, parseCurrency } from "../core/currency.js";
 import { renderProfileUi } from "../core/profile-ui.js";
 import { readJson, writeJson } from "../core/storage.js";
 
@@ -25,14 +25,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cancelarAdicionarBtn = document.getElementById("cancelarAdicionar");
     const confirmarAdicionarBtn = document.getElementById("confirmarAdicionar");
+    const valorAdicionarLabel = document.getElementById("valorAdicionarLabel");
+    const valorAdicionarHint = document.getElementById("valorAdicionarHint");
+    const valorAdicionarInput = document.getElementById("valorAdicionar");
+    const valorConvertido = document.getElementById("valorConvertido");
 
     let metaSelecionada = null;
+
+    const currencyRates = {
+        BRL: 1,
+        USD: 5.2,
+        EUR: 5.7,
+        JPY: 0.038
+    };
 
     let metas =
         readJson(userStorage, "metas", []) || [];
 
     function salvarMetas() {
         writeJson(userStorage, "metas", metas);
+    }
+
+    function convertToBRL(value, currency) {
+        return Number(value) * (currencyRates[currency] ?? 1);
     }
 
     const moeda = formatCurrency;
@@ -95,12 +110,12 @@ document.addEventListener("DOMContentLoaded", () => {
         metas.forEach(meta => {
 
             const percentual =
-                Math.min(
-                    100,
-                    Math.round(
-                        (meta.guardado / meta.objetivo) * 100
+                meta.objetivo > 0
+                    ? Math.min(
+                        100,
+                        Math.round((meta.guardado / meta.objetivo) * 100)
                     )
-                );
+                    : 0;
 
             const card =
                 document.createElement("article");
@@ -133,16 +148,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <span>
                         <strong>
-                            ${moeda(meta.guardado)}
+                            ${formatCurrencyByCode(
+                                meta.guardadoOriginal ?? meta.guardado,
+                                meta.moeda || "BRL"
+                            )}
                         </strong>
                         guardados
                     </span>
 
                     <span>
                         <strong>
-                            ${moeda(meta.objetivo)}
+                            ${formatCurrencyByCode(
+                                meta.objetivoOriginal ?? meta.objetivo,
+                                meta.moeda || "BRL"
+                            )}
                         </strong>
                         objetivo
+                    </span>
+
+                    <span>
+                        <strong>
+                            ${moeda(meta.objetivo - meta.guardado)}
+                        </strong>
+                        diferença para objetivo
                     </span>
 
                     <span>
@@ -201,6 +229,19 @@ document.addEventListener("DOMContentLoaded", () => {
                             )
                             .value = "";
 
+                        const meta = metas.find(m => m.id === Number(btn.dataset.id));
+                        const moedaMeta = meta?.moeda || "BRL";
+                        const symbol = {
+                            BRL: "R$",
+                            USD: "US$",
+                            EUR: "€",
+                            JPY: "¥"
+                        }[moedaMeta] || moedaMeta;
+
+                        valorAdicionarLabel.textContent = `Valor (${symbol})`;
+                        valorAdicionarHint.textContent = `O valor será convertido para reais (${formatCurrencyByCode(1, moedaMeta)} = ${moeda(convertToBRL(1, moedaMeta))}).`;
+                        atualizarValorAdicionado();
+
                         modalAdicionar.style.display =
                             "flex";
                     }
@@ -237,6 +278,22 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
+    function atualizarValorAdicionado() {
+        const valor = parseCurrency(valorAdicionarInput.value || "0");
+        const meta = metas.find(m => m.id === metaSelecionada);
+        const moedaMeta = meta?.moeda || "BRL";
+
+        if (isNaN(valor) || !meta) {
+            valorConvertido.textContent = "R$ 0,00 convertido";
+            return;
+        }
+
+        const convertido = convertToBRL(valor, moedaMeta);
+        valorConvertido.textContent = `${moeda(convertido)} convertido`;
+    }
+
+    valorAdicionarInput.addEventListener("input", atualizarValorAdicionado);
+
     btnNovaMeta.addEventListener(
         "click",
         () => {
@@ -262,15 +319,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     "metaNome"
                 ).value;
 
-            const objetivo =
-                parseFloat(
+            const moedasMeta =
+                document.getElementById(
+                    "metaMoeda"
+                ).value || "BRL";
+
+            const objetivoOriginal =
+                parseCurrency(
                     document.getElementById(
                         "metaObjetivo"
                     ).value
                 );
 
-            const guardado =
-                parseFloat(
+            const guardadoOriginal =
+                parseCurrency(
                     document.getElementById(
                         "metaGuardado"
                     ).value
@@ -283,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (
                 !nome ||
-                !objetivo ||
+                !objetivoOriginal ||
                 !prazo
             ) {
                 alert(
@@ -295,8 +357,17 @@ document.addEventListener("DOMContentLoaded", () => {
             metas.push({
                 id: Date.now(),
                 nome,
-                objetivo,
-                guardado,
+                moeda: moedasMeta,
+                objetivoOriginal,
+                objetivo: convertToBRL(
+                    objetivoOriginal,
+                    moedasMeta
+                ),
+                guardadoOriginal,
+                guardado: convertToBRL(
+                    guardadoOriginal,
+                    moedasMeta
+                ),
                 prazo
             });
 
@@ -337,7 +408,7 @@ document.addEventListener("DOMContentLoaded", () => {
         () => {
 
             const valor =
-                parseFloat(
+                parseCurrency(
                     document.getElementById(
                         "valorAdicionar"
                     ).value
@@ -355,7 +426,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (meta) {
 
-                meta.guardado += valor;
+                const moedaMeta = meta.moeda || "BRL";
+                const convertido = convertToBRL(valor, moedaMeta);
+
+                meta.guardadoOriginal =
+                    (meta.guardadoOriginal ?? meta.guardado) + valor;
+
+                meta.guardado += convertido;
 
                 salvarMetas();
                 renderizarMetas();

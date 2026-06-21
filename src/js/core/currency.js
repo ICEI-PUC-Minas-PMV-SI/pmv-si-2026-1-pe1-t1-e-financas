@@ -5,6 +5,13 @@ export function formatCurrency(value) {
   });
 }
 
+export function formatCurrencyByCode(value, currency = "BRL") {
+  return Number(value).toLocaleString("pt-BR", {
+    style: "currency",
+    currency
+  });
+}
+
 export function parseCurrency(value) {
   if (typeof value === "number") {
     return value;

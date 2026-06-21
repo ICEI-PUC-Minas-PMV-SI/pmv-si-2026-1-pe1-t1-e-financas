@@ -104,12 +104,22 @@
     </div>
 
     <div class="field">
-      <label>Valor Objetivo (R$)</label>
+      <label>Moeda</label>
+      <select id="metaMoeda">
+        <option value="BRL" selected>Real brasileiro (R$)</option>
+        <option value="USD">Dólar americano (US$)</option>
+        <option value="EUR">Euro (€)</option>
+        <option value="JPY">Iene japonês (¥)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Valor Objetivo</label>
       <input type="number" id="metaObjetivo">
     </div>
 
     <div class="field">
-      <label>Valor Guardado (R$)</label>
+      <label>Valor Guardado</label>
       <input type="number" id="metaGuardado" value="0">
     </div>
 
@@ -136,8 +146,14 @@
     <h2>Adicionar Valor</h2>
 
     <div class="field">
-      <label>Valor (R$)</label>
-      <input type="number" id="valorAdicionar">
+      <label id="valorAdicionarLabel">Valor</label>
+      <input type="number" id="valorAdicionar" placeholder="Digite o valor">
+      <p id="valorAdicionarHint" class="field-hint">
+        Este valor será convertido para reais ao salvar.
+      </p>
+      <p id="valorConvertido" class="field-hint" style="font-weight:600;">
+        R$ 0,00 convertido
+      </p>
     </div>
 
     <div class="form-actions">
