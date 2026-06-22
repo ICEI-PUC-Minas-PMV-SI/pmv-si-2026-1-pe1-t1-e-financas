@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const valorConvertido = document.getElementById("valorConvertido");
 
     let metaSelecionada = null;
+    let editMetaId = null;
 
     const currencyRates = {
         BRL: 1,
@@ -132,9 +133,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h2>${meta.nome}</h2>
                     </div>
 
-                    <span class="goal-card__percent">
-                        ${percentual}%
-                    </span>
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <span class="goal-card__percent">${percentual}%</span>
+
+                        <button class="btn btn--secondary btn--icon editar" data-id="${meta.id}" aria-label="Editar meta">
+                            <svg class="icon icon--pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" width="18" height="18">
+                                <path d="M3 21v-3L17.5 3.5a2.1 2.1 0 013 3L6 21H3z"></path>
+                                <path d="M14 7l3 3"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="progress-track">
@@ -275,6 +283,30 @@ document.addEventListener("DOMContentLoaded", () => {
                         renderizarMetas();
                     }
                 );
+        
+        document
+            .querySelectorAll(".editar")
+            .forEach(btn => {
+                btn.addEventListener("click", () => {
+                    editMetaId = Number(btn.dataset.id);
+
+                    const meta = metas.find(m => m.id === editMetaId);
+                    if (!meta) return;
+
+                    document.getElementById("metaNome").value = meta.nome || "";
+                    document.getElementById("metaMoeda").value = meta.moeda || "BRL";
+                    document.getElementById("metaObjetivo").value = (meta.objetivoOriginal ?? meta.objetivo) || "";
+                    document.getElementById("metaGuardado").value = (meta.guardadoOriginal ?? 0) || 0;
+                    document.getElementById("metaPrazo").value = meta.prazo || "";
+
+                    // Ajusta título do modal e texto do botão
+                    const titulo = modalMeta.querySelector("h2");
+                    if (titulo) titulo.textContent = "Editar Meta";
+                    salvarMetaBtn.textContent = "Salvar Alterações";
+
+                    modalMeta.style.display = "flex";
+                });
+            });
             });
     }
 
@@ -354,44 +386,51 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            metas.push({
-                id: Date.now(),
-                nome,
-                moeda: moedasMeta,
-                objetivoOriginal,
-                objetivo: convertToBRL(
+            if (editMetaId) {
+                const meta = metas.find(m => m.id === editMetaId);
+                if (meta) {
+                    meta.nome = nome;
+                    meta.moeda = moedasMeta;
+                    meta.objetivoOriginal = objetivoOriginal;
+                    meta.objetivo = convertToBRL(objetivoOriginal, moedasMeta);
+                    meta.guardadoOriginal = guardadoOriginal;
+                    meta.guardado = convertToBRL(guardadoOriginal, moedasMeta);
+                    meta.prazo = prazo;
+                }
+                editMetaId = null;
+            } else {
+                metas.push({
+                    id: Date.now(),
+                    nome,
+                    moeda: moedasMeta,
                     objetivoOriginal,
-                    moedasMeta
-                ),
-                guardadoOriginal,
-                guardado: convertToBRL(
+                    objetivo: convertToBRL(
+                        objetivoOriginal,
+                        moedasMeta
+                    ),
                     guardadoOriginal,
-                    moedasMeta
-                ),
-                prazo
-            });
+                    guardado: convertToBRL(
+                        guardadoOriginal,
+                        moedasMeta
+                    ),
+                    prazo
+                });
+            }
 
             salvarMetas();
             renderizarMetas();
 
-            modalMeta.style.display =
-                "none";
+            modalMeta.style.display = "none";
 
-            document.getElementById(
-                "metaNome"
-            ).value = "";
+            // restaurar botão e título
+            const titulo = modalMeta.querySelector("h2");
+            if (titulo) titulo.textContent = "Nova Meta";
+            salvarMetaBtn.textContent = "Salvar Meta";
 
-            document.getElementById(
-                "metaObjetivo"
-            ).value = "";
-
-            document.getElementById(
-                "metaGuardado"
-            ).value = "0";
-
-            document.getElementById(
-                "metaPrazo"
-            ).value = "";
+            document.getElementById("metaNome").value = "";
+            document.getElementById("metaObjetivo").value = "";
+            document.getElementById("metaGuardado").value = "0";
+            document.getElementById("metaPrazo").value = "";
         }
     );
 

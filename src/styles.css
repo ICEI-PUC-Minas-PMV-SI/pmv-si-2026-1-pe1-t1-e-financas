@@ -322,6 +322,25 @@ button {
   background: var(--color-soft);
 }
 
+.btn--icon {
+  min-width: 36px;
+  min-height: 36px;
+  padding: 6px;
+  font-size: 14px;
+  display: inline-grid;
+  place-items: center;
+}
+
+.btn--icon .icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.icon--pencil {
+  color: inherit;
+}
+
 .btn--full {
   width: 100%;
 }
