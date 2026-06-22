@@ -5,7 +5,7 @@ import { readJson } from "../core/storage.js";
 import { logout, requireUser } from "../auth/route-guard.js";
 import { bindLogout } from "../core/profile-ui.js";
 import { createUserStorage } from "../core/user-storage.js";
-import { bindPdfExport } from "./report-export.js";
+import { bindCsvExport, bindPdfExport, createReportCsv } from "./report-export.js";
 
 const activeUser = requireUser();
 
@@ -58,6 +58,19 @@ document.addEventListener(
             (saldo / receitas) * 100
         )
         : 0;
+
+    bindCsvExport(
+        document.getElementById(
+            "btnExportarCsv"
+        ),
+        () => createReportCsv({
+            receitas,
+            despesas,
+            saldo,
+            economia,
+            categorias
+        })
+    );
 
     document.getElementById(
         "receitasTotal"

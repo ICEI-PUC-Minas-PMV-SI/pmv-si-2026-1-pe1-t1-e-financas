@@ -501,7 +501,9 @@ button {
 
 .topbar-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
 }
 
@@ -1393,6 +1395,7 @@ button {
   }
 
   .sidebar,
+  #btnExportarCsv,
   #btnExportarPdf,
   .avatar {
     display: none !important;
