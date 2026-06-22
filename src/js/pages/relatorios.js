@@ -5,6 +5,7 @@ import { readJson } from "../core/storage.js";
 import { logout, requireUser } from "../auth/route-guard.js";
 import { bindLogout } from "../core/profile-ui.js";
 import { createUserStorage } from "../core/user-storage.js";
+import { bindPdfExport } from "./report-export.js";
 
 const activeUser = requireUser();
 
@@ -15,6 +16,11 @@ if (activeUser) {
 document.addEventListener(
 "DOMContentLoaded",
 () => {
+    bindPdfExport(
+        document.getElementById(
+            "btnExportarPdf"
+        )
+    );
 
     const transacoes =
         readJson(userStorage, "transacoes", []) || [];

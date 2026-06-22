@@ -1372,3 +1372,59 @@ button {
 .logout-button:focus-visible {
     color: #dc2626;
 }
+
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  html,
+  body {
+    background: #ffffff;
+  }
+
+  body {
+    color: #111827;
+  }
+
+  .app-shell {
+    display: block;
+    min-height: auto;
+  }
+
+  .sidebar,
+  #btnExportarPdf,
+  .avatar {
+    display: none !important;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .report-layout {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 12px;
+  }
+
+  .summary-card,
+  .card {
+    border-color: #cbd5e1;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+}
